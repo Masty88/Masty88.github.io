@@ -112,6 +112,8 @@ slideShow();
 function slideShow(){
 
   if (x.matches) { // If media query matches
+    //recover again for ios oterwhise don'twork
+    let counter=1;
     let carouselSlide=document.querySelector(".carousel-slide");
     let carouselImages=document.getElementsByClassName("slide")
     // button listener
@@ -184,6 +186,7 @@ function slideShow(){
 
 
   } else {
+    let counter=1;
     let carouselSlide=document.querySelector(".carousel-slide");
     let carouselImages=document.getElementsByClassName("slide")
   console.log("android");
