@@ -89,31 +89,35 @@ if (home) {
       var myScript = function myScript() {
         var windowSize = document.documentElement.clientWidth;
         console.log("ok");
-        carouselSlide.style.transform = "translateX(" + -windowSize + "px)";
+        _carouselSlide.style.transform = "translateX(" + -windowSize + "px)";
         counter = 1;
       };
 
       // If media query matches
-      // button listener
+      var _carouselSlide = document.querySelector(".carousel-slide");
+
+      var _carouselImages = document.getElementsByClassName("slide"); // button listener
       // recover button prev
+
+
       var prevBtn = document.getElementsByClassName("prev"); //recover button netx
 
       var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
 
       var windowSize = document.documentElement.clientWidth; // move one picture
 
-      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)"; // button listener
+      _carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)"; // button listener
 
       nextBtn[0].addEventListener("click", function () {
-        if (counter >= carouselImages.length - 1) {
+        if (counter >= _carouselImages.length - 1) {
           return;
         }
 
         var windowSize = document.documentElement.clientWidth;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
         counter++;
-        carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-        console.log(carouselImages[2].id);
+        _carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
+        console.log(_carouselImages[2].id);
       }); //add event to this button
 
       prevBtn[0].addEventListener("click", function () {
@@ -122,41 +126,46 @@ if (home) {
         }
 
         var windowSize = document.documentElement.clientWidth;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
         counter--;
-        carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
+        _carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
       }); // event end with listener when transition end reset the transition
 
-      carouselSlide.addEventListener("transitionend", function () {
-        if (carouselImages[counter].id === "lastclone") {
+      _carouselSlide.addEventListener("transitionend", function () {
+        if (_carouselImages[counter].id === "lastclone") {
           var _windowSize = document.documentElement.clientWidth;
           console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
 
-          carouselSlide.style.transition = "none"; // update the counter
+          _carouselSlide.style.transition = "none"; // update the counter
 
-          counter = carouselImages.length - 2; // and the we transform
+          counter = _carouselImages.length - 2; // and the we transform
 
-          carouselSlide.style.transform = "translateX(" + -_windowSize * counter + "px)";
+          _carouselSlide.style.transform = "translateX(" + -_windowSize * counter + "px)";
         }
 
-        if (carouselImages[counter].id === "firstclone") {
+        if (_carouselImages[counter].id === "firstclone") {
           var _windowSize2 = document.documentElement.clientWidth; //if we are at the of the image we want to remove the transition and jump back to the first image
 
-          carouselSlide.style.transition = "none"; // update the counter
+          _carouselSlide.style.transition = "none"; // update the counter
 
-          counter = carouselImages.length - counter; // and the we transform to go back to first one
+          counter = _carouselImages.length - counter; // and the we transform to go back to first one
 
-          carouselSlide.style.transform = "translateX(" + -_windowSize2 * counter + "px)";
+          _carouselSlide.style.transform = "translateX(" + -_windowSize2 * counter + "px)";
         }
       });
+
       window.addEventListener("resize", myScript);
     } else {
       var _myScript = function _myScript() {
         var windowSizeH = document.documentElement.clientHeight;
         console.log("ok");
-        carouselSlide.style.transform = "translateY(" + -windowSizeH + "px)";
+        _carouselSlide2.style.transform = "translateY(" + -windowSizeH + "px)";
         counter = 1;
       };
+
+      var _carouselSlide2 = document.querySelector(".carousel-slide");
+
+      var _carouselImages2 = document.getElementsByClassName("slide");
 
       console.log("android"); // button listener
       // recover button prev
@@ -167,17 +176,17 @@ if (home) {
 
       var windowSizeH = document.documentElement.clientHeight; // move one picture
 
-      carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)"; // button listener
+      _carouselSlide2.style.transform = "translateY(" + -windowSizeH * counter + "px)"; // button listener
 
       nextBtn[0].addEventListener("click", function () {
-        if (counter >= carouselImages.length - 1) {
+        if (counter >= _carouselImages2.length - 1) {
           return;
         }
 
         var windowSizeH = document.documentElement.clientHeight;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+        _carouselSlide2.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
         counter++;
-        carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
+        _carouselSlide2.style.transform = "translateY(" + -windowSizeH * counter + "px)";
       }); //add event to this button
 
       prevBtn[0].addEventListener("click", function () {
@@ -186,33 +195,34 @@ if (home) {
         }
 
         var windowSizeH = document.documentElement.clientHeight;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+        _carouselSlide2.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
         counter--;
-        carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
+        _carouselSlide2.style.transform = "translateY(" + -windowSizeH * counter + "px)";
       }); // event end with listener when transition end reset the transition
 
-      carouselSlide.addEventListener("transitionend", function () {
-        if (carouselImages[counter].id === "lastclone") {
+      _carouselSlide2.addEventListener("transitionend", function () {
+        if (_carouselImages2[counter].id === "lastclone") {
           var _windowSizeH = document.documentElement.clientHeight;
           console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
 
-          carouselSlide.style.transition = "none"; // update the counter
+          _carouselSlide2.style.transition = "none"; // update the counter
 
-          counter = carouselImages.length - 2; // and the we transform
+          counter = _carouselImages2.length - 2; // and the we transform
 
-          carouselSlide.style.transform = "translateY(" + -_windowSizeH * counter + "px)";
+          _carouselSlide2.style.transform = "translateY(" + -_windowSizeH * counter + "px)";
         }
 
-        if (carouselImages[counter].id === "firstclone") {
+        if (_carouselImages2[counter].id === "firstclone") {
           var _windowSizeH2 = document.documentElement.clientHeight; //if we are at the of the image we want to remove the transition and jump back to the first image
 
-          carouselSlide.style.transition = "none"; // update the counter
+          _carouselSlide2.style.transition = "none"; // update the counter
 
-          counter = carouselImages.length - counter; // and the we transform to go back to first one
+          counter = _carouselImages2.length - counter; // and the we transform to go back to first one
 
-          carouselSlide.style.transform = "translateY(" + -_windowSizeH2 * counter + "px)";
+          _carouselSlide2.style.transform = "translateY(" + -_windowSizeH2 * counter + "px)";
         }
       });
+
       window.addEventListener("resize", _myScript);
     }
     /* -------------------------------------------------------------------------- */

@@ -82,8 +82,8 @@ if(home){
 
 
  ///recover carousel container
- const carouselSlide=document.querySelector(".carousel-slide");
- const carouselImages=document.getElementsByClassName("slide")
+ var carouselSlide=document.querySelector(".carousel-slide");
+var carouselImages=document.getElementsByClassName("slide")
 
 // find the chent X and Y
 var windowCenterX =  document.documentElement.clientWidth / 2;
@@ -110,7 +110,10 @@ return false;
 
 slideShow();
 function slideShow(){
+
   if (x.matches) { // If media query matches
+    let carouselSlide=document.querySelector(".carousel-slide");
+    let carouselImages=document.getElementsByClassName("slide")
     // button listener
     // recover button prev
     var prevBtn=document.getElementsByClassName("prev");
@@ -181,6 +184,8 @@ function slideShow(){
 
 
   } else {
+    let carouselSlide=document.querySelector(".carousel-slide");
+    let carouselImages=document.getElementsByClassName("slide")
   console.log("android");
   // button listener
     // recover button prev
