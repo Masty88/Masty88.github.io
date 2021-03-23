@@ -80,11 +80,6 @@ function changeColorLogoReverse() {
  const carouselSlide=document.querySelector(".carousel-slide");
  const carouselImages=document.getElementsByClassName("slide")
 
-if ( carouselSlide) {
-  console.log("ok");
-
- carouselSlide=document.querySelector(".carousel-slide");
- carouselImages=document.getElementsByClassName("slide")
 // find the chent X and Y
 var windowCenterX =  document.documentElement.clientWidth / 2;
 var windowCenterY =  document.documentElement.clientHeight / 2;
@@ -334,7 +329,7 @@ var sphereAnimation = (function() {
 })();
 }
 
-}
+
 
 /* -------------------------------------------------------------------------- */
 /*                               PAGE PORTFOLIO                               */

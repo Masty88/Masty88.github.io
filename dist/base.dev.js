@@ -2,8 +2,6 @@
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 /* -------------------------------------------------------------------------- */
 
 /*                                 burger menu                                */
@@ -85,245 +83,239 @@ function changeColorLogoReverse() {
 
 
 var carouselSlide = document.querySelector(".carousel-slide");
-var carouselImages = document.getElementsByClassName("slide");
+var carouselImages = document.getElementsByClassName("slide"); // find the chent X and Y
 
-if (carouselSlide) {
-  var slideShow = function slideShow() {
-    carouselSlide.style.transition = "";
+var windowCenterX = document.documentElement.clientWidth / 2;
+var windowCenterY = document.documentElement.clientHeight / 2;
+console.log("window center" + windowCenterX);
+console.log("window center" + windowCenterY); // counter
 
-    if (x.matches) {
-      var myScript = function myScript() {
-        var windowSize = document.documentElement.clientWidth;
-        console.log("ok");
-        carouselSlide.style.transform = "translateX(" + -windowSize + "px)";
-        counter = 1;
-      };
+var counter = 1;
+var x = window.matchMedia("(min-width: 1024px)");
+var windowSize = document.documentElement.clientWidth;
+window.addEventListener("resize", function () {
+  if (windowSize <= 1024) {
+    location.href = "index.html";
+    return false;
+  } else {
+    console.log("mediaresi2");
+    location.href = "index.html";
+    return false;
+  }
+});
+slideShow();
 
-      // If media query matches
-      // button listener
-      // recover button prev
-      var prevBtn = document.getElementsByClassName("prev"); //recover button netx
+function slideShow() {
+  carouselSlide.style.transition = "";
 
-      var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
+  if (x.matches) {
+    var myScript = function myScript() {
+      var windowSize = document.documentElement.clientWidth;
+      console.log("ok");
+      carouselSlide.style.transform = "translateX(" + -windowSize + "px)";
+      counter = 1;
+    };
 
-      var windowSize = document.documentElement.clientWidth; // move one picture
+    // If media query matches
+    // button listener
+    // recover button prev
+    var prevBtn = document.getElementsByClassName("prev"); //recover button netx
 
-      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)"; // button listener
+    var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
 
-      nextBtn[0].addEventListener("click", function () {
-        if (counter >= carouselImages.length - 1) {
-          return;
-        }
+    var windowSize = document.documentElement.clientWidth; // move one picture
 
-        var windowSize = document.documentElement.clientWidth;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        counter++;
-        carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-        console.log(carouselImages[2].id);
-      }); //add event to this button
+    carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)"; // button listener
 
-      prevBtn[0].addEventListener("click", function () {
-        if (counter <= 0) {
-          return;
-        }
-
-        var windowSize = document.documentElement.clientWidth;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        counter--;
-        carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-      }); // event end with listener when transition end reset the transition
-
-      carouselSlide.addEventListener("transitionend", function () {
-        if (carouselImages[counter].id === "lastclone") {
-          var _windowSize = document.documentElement.clientWidth;
-          console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
-
-          carouselSlide.style.transition = "none"; // update the counter
-
-          counter = carouselImages.length - 2; // and the we transform
-
-          carouselSlide.style.transform = "translateX(" + -_windowSize * counter + "px)";
-        }
-
-        if (carouselImages[counter].id === "firstclone") {
-          var _windowSize2 = document.documentElement.clientWidth; //if we are at the of the image we want to remove the transition and jump back to the first image
-
-          carouselSlide.style.transition = "none"; // update the counter
-
-          counter = carouselImages.length - counter; // and the we transform to go back to first one
-
-          carouselSlide.style.transform = "translateX(" + -_windowSize2 * counter + "px)";
-        }
-      });
-      window.addEventListener("resize", myScript);
-    } else {
-      var _myScript = function _myScript() {
-        var windowSizeH = document.documentElement.clientHeight;
-        console.log("ok");
-        carouselSlide.style.transform = "translateY(" + -windowSizeH + "px)";
-        counter = 1;
-      };
-
-      console.log("android"); // button listener
-      // recover button prev
-
-      var prevBtn = document.getElementsByClassName("prev"); //recover button netx
-
-      var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
-
-      var windowSizeH = document.documentElement.clientHeight; // move one picture
-
-      carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)"; // button listener
-
-      nextBtn[0].addEventListener("click", function () {
-        if (counter >= carouselImages.length - 1) {
-          return;
-        }
-
-        var windowSizeH = document.documentElement.clientHeight;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        counter++;
-        carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-      }); //add event to this button
-
-      prevBtn[0].addEventListener("click", function () {
-        if (counter <= 0) {
-          return;
-        }
-
-        var windowSizeH = document.documentElement.clientHeight;
-        carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        counter--;
-        carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-      }); // event end with listener when transition end reset the transition
-
-      carouselSlide.addEventListener("transitionend", function () {
-        if (carouselImages[counter].id === "lastclone") {
-          var _windowSizeH = document.documentElement.clientHeight;
-          console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
-
-          carouselSlide.style.transition = "none"; // update the counter
-
-          counter = carouselImages.length - 2; // and the we transform
-
-          carouselSlide.style.transform = "translateY(" + -_windowSizeH * counter + "px)";
-        }
-
-        if (carouselImages[counter].id === "firstclone") {
-          var _windowSizeH2 = document.documentElement.clientHeight; //if we are at the of the image we want to remove the transition and jump back to the first image
-
-          carouselSlide.style.transition = "none"; // update the counter
-
-          counter = carouselImages.length - counter; // and the we transform to go back to first one
-
-          carouselSlide.style.transform = "translateY(" + -_windowSizeH2 * counter + "px)";
-        }
-      });
-      window.addEventListener("resize", _myScript);
-    }
-    /* -------------------------------------------------------------------------- */
-
-    /*                                  Anime Js                                  */
-
-    /* -------------------------------------------------------------------------- */
-
-
-    function fitElementToParent(el, padding) {
-      var timeout = null;
-
-      function resize() {
-        if (timeout) clearTimeout(timeout);
-        anime.set(el, {
-          scale: 100
-        });
-        var pad = padding || 0;
-        var parentEl = el.parentNode;
-        var elOffsetWidth = el.offsetWidth - pad;
-        var parentOffsetWidth = parentEl.offsetWidth;
-        var ratio = parentOffsetWidth / elOffsetWidth;
-        timeout = setTimeout(anime.set(el, {
-          scale: ratio
-        }), 10);
-      } // resize();
-      // window.addEventListener('resize', resize);
-
-    }
-
-    var sphereAnimation = function () {
-      var sphereEl = document.querySelector('.sphere-animation');
-      var spherePathEls = sphereEl.querySelectorAll('.Layer_1 path');
-      var pathLength = spherePathEls.length;
-      var hasStarted = false;
-      var aimations = [];
-      fitElementToParent(sphereEl);
-      var breathAnimation = anime({
-        begin: function begin() {
-          for (var i = 0; i < pathLength; i++) {
-            aimations.push(anime({
-              targets: spherePathEls[i],
-              stroke: {
-                value: ['rgba(255,255,255,1)', 'rgba(80,80,80,.5)'],
-                duration: 1000
-              },
-              translateX: [8, -16],
-              translateY: [4, -8],
-              easing: 'easeOutQuad',
-              autoplay: false
-            }));
-          }
-        },
-        update: function update(ins) {
-          aimations.forEach(function (animation, i) {
-            var percent = (1 - Math.sin(i * .35 + .0022 * ins.currentTime)) / 2;
-            animation.seek(animation.duration * percent);
-          });
-        },
-        duration: Infinity,
-        autoplay: false
-      });
-      var shadowAnimation = anime({
-        targets: '#sphereGradient',
-        x1: '25%',
-        x2: '25%',
-        y1: '0%',
-        y2: '75%',
-        duration: 20000,
-        easing: 'easeOutQuint',
-        autoplay: false
-      }, 0);
-
-      function init() {
-        breathAnimation.play();
-        shadowAnimation.play();
+    nextBtn[0].addEventListener("click", function () {
+      if (counter >= carouselImages.length - 1) {
+        return;
       }
 
-      init();
-    }();
-  };
+      var windowSize = document.documentElement.clientWidth;
+      carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+      counter++;
+      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
+      console.log(carouselImages[2].id);
+    }); //add event to this button
 
-  console.log("ok");
-  carouselSlide = (_readOnlyError("carouselSlide"), document.querySelector(".carousel-slide"));
-  carouselImages = (_readOnlyError("carouselImages"), document.getElementsByClassName("slide")); // find the chent X and Y
+    prevBtn[0].addEventListener("click", function () {
+      if (counter <= 0) {
+        return;
+      }
 
-  var windowCenterX = document.documentElement.clientWidth / 2;
-  var windowCenterY = document.documentElement.clientHeight / 2;
-  console.log("window center" + windowCenterX);
-  console.log("window center" + windowCenterY); // counter
+      var windowSize = document.documentElement.clientWidth;
+      carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+      counter--;
+      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
+    }); // event end with listener when transition end reset the transition
 
-  var counter = 1;
-  var x = window.matchMedia("(min-width: 1024px)");
-  var windowSize = document.documentElement.clientWidth;
-  window.addEventListener("resize", function () {
-    if (windowSize <= 1024) {
-      location.href = "index.html";
-      return false;
-    } else {
-      console.log("mediaresi2");
-      location.href = "index.html";
-      return false;
+    carouselSlide.addEventListener("transitionend", function () {
+      if (carouselImages[counter].id === "lastclone") {
+        var _windowSize = document.documentElement.clientWidth;
+        console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
+
+        carouselSlide.style.transition = "none"; // update the counter
+
+        counter = carouselImages.length - 2; // and the we transform
+
+        carouselSlide.style.transform = "translateX(" + -_windowSize * counter + "px)";
+      }
+
+      if (carouselImages[counter].id === "firstclone") {
+        var _windowSize2 = document.documentElement.clientWidth; //if we are at the of the image we want to remove the transition and jump back to the first image
+
+        carouselSlide.style.transition = "none"; // update the counter
+
+        counter = carouselImages.length - counter; // and the we transform to go back to first one
+
+        carouselSlide.style.transform = "translateX(" + -_windowSize2 * counter + "px)";
+      }
+    });
+    window.addEventListener("resize", myScript);
+  } else {
+    var _myScript = function _myScript() {
+      var windowSizeH = document.documentElement.clientHeight;
+      console.log("ok");
+      carouselSlide.style.transform = "translateY(" + -windowSizeH + "px)";
+      counter = 1;
+    };
+
+    console.log("android"); // button listener
+    // recover button prev
+
+    var prevBtn = document.getElementsByClassName("prev"); //recover button netx
+
+    var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
+
+    var windowSizeH = document.documentElement.clientHeight; // move one picture
+
+    carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)"; // button listener
+
+    nextBtn[0].addEventListener("click", function () {
+      if (counter >= carouselImages.length - 1) {
+        return;
+      }
+
+      var windowSizeH = document.documentElement.clientHeight;
+      carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+      counter++;
+      carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
+    }); //add event to this button
+
+    prevBtn[0].addEventListener("click", function () {
+      if (counter <= 0) {
+        return;
+      }
+
+      var windowSizeH = document.documentElement.clientHeight;
+      carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+      counter--;
+      carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
+    }); // event end with listener when transition end reset the transition
+
+    carouselSlide.addEventListener("transitionend", function () {
+      if (carouselImages[counter].id === "lastclone") {
+        var _windowSizeH = document.documentElement.clientHeight;
+        console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
+
+        carouselSlide.style.transition = "none"; // update the counter
+
+        counter = carouselImages.length - 2; // and the we transform
+
+        carouselSlide.style.transform = "translateY(" + -_windowSizeH * counter + "px)";
+      }
+
+      if (carouselImages[counter].id === "firstclone") {
+        var _windowSizeH2 = document.documentElement.clientHeight; //if we are at the of the image we want to remove the transition and jump back to the first image
+
+        carouselSlide.style.transition = "none"; // update the counter
+
+        counter = carouselImages.length - counter; // and the we transform to go back to first one
+
+        carouselSlide.style.transform = "translateY(" + -_windowSizeH2 * counter + "px)";
+      }
+    });
+    window.addEventListener("resize", _myScript);
+  }
+  /* -------------------------------------------------------------------------- */
+
+  /*                                  Anime Js                                  */
+
+  /* -------------------------------------------------------------------------- */
+
+
+  function fitElementToParent(el, padding) {
+    var timeout = null;
+
+    function resize() {
+      if (timeout) clearTimeout(timeout);
+      anime.set(el, {
+        scale: 100
+      });
+      var pad = padding || 0;
+      var parentEl = el.parentNode;
+      var elOffsetWidth = el.offsetWidth - pad;
+      var parentOffsetWidth = parentEl.offsetWidth;
+      var ratio = parentOffsetWidth / elOffsetWidth;
+      timeout = setTimeout(anime.set(el, {
+        scale: ratio
+      }), 10);
+    } // resize();
+    // window.addEventListener('resize', resize);
+
+  }
+
+  var sphereAnimation = function () {
+    var sphereEl = document.querySelector('.sphere-animation');
+    var spherePathEls = sphereEl.querySelectorAll('.Layer_1 path');
+    var pathLength = spherePathEls.length;
+    var hasStarted = false;
+    var aimations = [];
+    fitElementToParent(sphereEl);
+    var breathAnimation = anime({
+      begin: function begin() {
+        for (var i = 0; i < pathLength; i++) {
+          aimations.push(anime({
+            targets: spherePathEls[i],
+            stroke: {
+              value: ['rgba(255,255,255,1)', 'rgba(80,80,80,.5)'],
+              duration: 1000
+            },
+            translateX: [8, -16],
+            translateY: [4, -8],
+            easing: 'easeOutQuad',
+            autoplay: false
+          }));
+        }
+      },
+      update: function update(ins) {
+        aimations.forEach(function (animation, i) {
+          var percent = (1 - Math.sin(i * .35 + .0022 * ins.currentTime)) / 2;
+          animation.seek(animation.duration * percent);
+        });
+      },
+      duration: Infinity,
+      autoplay: false
+    });
+    var shadowAnimation = anime({
+      targets: '#sphereGradient',
+      x1: '25%',
+      x2: '25%',
+      y1: '0%',
+      y2: '75%',
+      duration: 20000,
+      easing: 'easeOutQuint',
+      autoplay: false
+    }, 0);
+
+    function init() {
+      breathAnimation.play();
+      shadowAnimation.play();
     }
-  });
-  slideShow();
+
+    init();
+  }();
 }
 /* -------------------------------------------------------------------------- */
 
