@@ -76,6 +76,11 @@ function changeColorLogoReverse() {
 /* -------------------------------------------------------------------------- */
 /*                               slideshow index                              */
 /* -------------------------------------------------------------------------- */
+var home=document.getElementById("wrapper_home");
+if(home){
+
+
+
  ///recover carousel container
  const carouselSlide=document.querySelector(".carousel-slide");
  const carouselImages=document.getElementsByClassName("slide")
@@ -328,7 +333,7 @@ var sphereAnimation = (function() {
 
 })();
 }
-
+}
 
 
 /* -------------------------------------------------------------------------- */

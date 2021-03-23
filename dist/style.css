@@ -574,9 +574,6 @@ body {
     width: 100%;
     position: absolute;
     z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   #firstclone .sphere-animation {
     width: 100%;
