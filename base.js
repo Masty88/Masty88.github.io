@@ -83,7 +83,8 @@ function changeColorLogoReverse() {
 if ( carouselSlide) {
   console.log("ok");
 
-
+ carouselSlide=document.querySelector(".carousel-slide");
+ carouselImages=document.getElementsByClassName("slide")
 // find the chent X and Y
 var windowCenterX =  document.documentElement.clientWidth / 2;
 var windowCenterY =  document.documentElement.clientHeight / 2;
@@ -181,7 +182,7 @@ function slideShow(){
 
 
   } else {
-
+  console.log("android");
   // button listener
     // recover button prev
     var prevBtn=document.getElementsByClassName("prev");

@@ -2,6 +2,8 @@
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 /* -------------------------------------------------------------------------- */
 
 /*                                 burger menu                                */
@@ -162,8 +164,9 @@ if (carouselSlide) {
         counter = 1;
       };
 
-      // button listener
+      console.log("android"); // button listener
       // recover button prev
+
       var prevBtn = document.getElementsByClassName("prev"); //recover button netx
 
       var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
@@ -298,7 +301,9 @@ if (carouselSlide) {
     }();
   };
 
-  console.log("ok"); // find the chent X and Y
+  console.log("ok");
+  carouselSlide = (_readOnlyError("carouselSlide"), document.querySelector(".carousel-slide"));
+  carouselImages = (_readOnlyError("carouselImages"), document.getElementsByClassName("slide")); // find the chent X and Y
 
   var windowCenterX = document.documentElement.clientWidth / 2;
   var windowCenterY = document.documentElement.clientHeight / 2;
