@@ -79,9 +79,13 @@ function changeColorLogoReverse() {
 /*                               slideshow index                              */
 
 /* -------------------------------------------------------------------------- */
+///recover carousel container
 
 
-if (document.URL.includes("index.html")) {
+var carouselSlide = document.querySelector(".carousel-slide");
+var carouselImages = document.getElementsByClassName("slide");
+
+if (carouselSlide) {
   var slideShow = function slideShow() {
     carouselSlide.style.transition = "";
 
@@ -294,10 +298,7 @@ if (document.URL.includes("index.html")) {
     }();
   };
 
-  console.log("ok"); ///recover carousel container
-
-  var carouselSlide = document.querySelector(".carousel-slide");
-  var carouselImages = document.getElementsByClassName("slide"); // find the chent X and Y
+  console.log("ok"); // find the chent X and Y
 
   var windowCenterX = document.documentElement.clientWidth / 2;
   var windowCenterY = document.documentElement.clientHeight / 2;
@@ -324,20 +325,12 @@ if (document.URL.includes("index.html")) {
 /*                               PAGE PORTFOLIO                               */
 
 /* -------------------------------------------------------------------------- */
+//recover main
 
 
-if (document.URL.includes("porfolio.html")) {
-  var windowSize = document.documentElement.clientWidth;
-  window.addEventListener("resize", function () {
-    if (windowSize <= 1024) {
-      location.href = "porfolio.html";
-      return false;
-    } else {
-      console.log("mediaresi2");
-      location.href = "porfolio.html";
-      return false;
-    }
-  });
+var mainPortfolio = document.getElementById("portfolio");
+
+if (mainPortfolio) {
   var x = window.matchMedia("(min-width: 1024px)");
   var deviceIsMobile = false; //At the beginning we set this flag as false. If we can detect the device is a mobile device in the next line, then we set it as true.
 
@@ -346,7 +339,8 @@ if (document.URL.includes("porfolio.html")) {
     console.log("ok");
   }
 
-  if (x.matches && deviceIsMobile == false) {
+  if (x.matches && deviceIsMobile === false) {
+    console.log(deviceIsMobile);
     console.log("ok");
 
     var eventListenerOptionsSupported = function eventListenerOptionsSupported() {
@@ -416,7 +410,20 @@ if (document.URL.includes("porfolio.html")) {
       e.preventDefault();
     });
   } // If media query matches
-
+  else if (x.matches && deviceIsMobile === true) {
+      mainPortfolio.style.cssText = "overflow-y: hidden;";
+      var windowSize = document.documentElement.clientWidth;
+      window.addEventListener("resize", function () {
+        if (windowSize <= 1024) {
+          location.href = "porfolio.html";
+          return false;
+        } else {
+          console.log("mediaresi2");
+          location.href = "porfolio.html";
+          return false;
+        }
+      });
+    }
 }
 /* -------------------------------------------------------------------------- */
 

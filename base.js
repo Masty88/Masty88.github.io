@@ -76,11 +76,13 @@ function changeColorLogoReverse() {
 /* -------------------------------------------------------------------------- */
 /*                               slideshow index                              */
 /* -------------------------------------------------------------------------- */
-if ( document.URL.includes("index.html") ) {
-  console.log("ok");
  ///recover carousel container
-const carouselSlide=document.querySelector(".carousel-slide");
-const carouselImages=document.getElementsByClassName("slide")
+ const carouselSlide=document.querySelector(".carousel-slide");
+ const carouselImages=document.getElementsByClassName("slide")
+
+if ( carouselSlide) {
+  console.log("ok");
+
 
 // find the chent X and Y
 var windowCenterX =  document.documentElement.clientWidth / 2;
@@ -336,19 +338,11 @@ var sphereAnimation = (function() {
 /* -------------------------------------------------------------------------- */
 /*                               PAGE PORTFOLIO                               */
 /* -------------------------------------------------------------------------- */
-if ( document.URL.includes("porfolio.html") ) {
+//recover main
+var mainPortfolio=document.getElementById("portfolio");
 
-  var windowSize=document.documentElement.clientWidth;
-  window.addEventListener("resize",function(){
-    if(windowSize <= 1024){
-      location.href="porfolio.html";
-  return false;
-    }else{
-      console.log("mediaresi2");
-      location.href="porfolio.html";
-  return false;
-    }
-  });
+if ( mainPortfolio) {
+
 
 var x = window.matchMedia("(min-width: 1024px)");
 var deviceIsMobile = false; //At the beginning we set this flag as false. If we can detect the device is a mobile device in the next line, then we set it as true.
@@ -360,7 +354,8 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
    console.log("ok");
 }
 
-  if (x.matches && deviceIsMobile==false) {
+  if (x.matches && deviceIsMobile===false ) {
+    console.log(deviceIsMobile);
     console.log("ok");
     const eventListenerOptionsSupported = () => {
       let supported = false;
@@ -442,7 +437,21 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     e.preventDefault();
   });
   }// If media query matches
+   else if(x.matches && deviceIsMobile===true){
+    mainPortfolio.style.cssText="overflow-y: hidden;"
+    var windowSize=document.documentElement.clientWidth;
+    window.addEventListener("resize",function(){
+      if(windowSize <= 1024){
+        location.href="porfolio.html";
+    return false;
+      }else{
+        console.log("mediaresi2");
+        location.href="porfolio.html";
+    return false;
+      }
+    });
 
+   }
 
 }
 
