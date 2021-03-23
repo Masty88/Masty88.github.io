@@ -901,6 +901,7 @@ body {
             // top: 100%;
             // left: 80%;
             width: 50%;
+            margin-top: 30px;
         }
 
         .wrapper-title {
@@ -943,6 +944,90 @@ body {
         }
 
     }
+    #slide2 {
+        width: 100%;
+        height: 100%;
+         @include centerflex();
+         img{
+             width: 100%;
+            height: 100%;
+            margin-right: 0;
+
+         }
+         .wrapper-title {
+             position: absolute;
+             left: 5%;
+             padding: 8px;
+
+             h2 {
+                 color: white;
+                 line-height: 45px;
+                 font-family: "didonesque";
+                 font-size: 38px;
+                 box-sizing: border-box;
+             }
+
+             h3 {
+                 width: 100%;
+                 margin-top: 25px;
+                 color: white;
+                 top: 185%;
+                 left: 35%;
+                 font-family: "Open Sans", sans-serif;
+                 font-size: 12.5px;
+                 margin-left: 5px;
+
+                 &:before {
+                     content: "";
+                     position: absolute;
+                     bottom: 30px;
+                     left: 10px;
+                     right: 0;
+                     height: 0.2em;
+                     border-top: 2px solid white;
+                     z-index: 1;
+                     width: 90%;
+                 }
+             }
+         }
+
+         .wrapper-cta {
+             position: absolute;
+             top: 180%;
+             width: 100%;
+             height: 20vh;
+             //background-color: blanchedalmond;
+             @include centerflex();
+
+             p {
+                 // position: absolute;
+                 color: white;
+                 // top: 185%;
+                 left: 35%;
+                 font-family: "Open Sans", sans-serif;
+                 font-size: 12px;
+                 @include columnflex();
+                 //overflow-x: hidden;
+                 &:after {
+                     content: "";
+                     position: relative;
+                     height: 0.5em;
+                     margin-top: 5px;
+                     border-top: 2px solid white;
+                     z-index: 1;
+                     transition: border-top 2s ease-in;
+                     width: 70px;
+                 }
+
+                 &:hover::after {
+                     border-top: 20px solid white;
+                 }
+             }
+         }
+
+
+ }
+
     #firstclone{
         // position: absolute;
         .sphere-animation {
@@ -1118,6 +1203,7 @@ body {
         }
 
     }
+
 
     #firstclone{
         .sphere-animation {

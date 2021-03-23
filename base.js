@@ -110,7 +110,6 @@ return false;
 
 slideShow();
 function slideShow(){
-  carouselSlide.style.transition= "";
   if (x.matches) { // If media query matches
     // button listener
     // recover button prev

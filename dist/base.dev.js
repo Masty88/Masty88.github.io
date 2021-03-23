@@ -85,8 +85,6 @@ var home = document.getElementById("wrapper_home");
 
 if (home) {
   var slideShow = function slideShow() {
-    carouselSlide.style.transition = "";
-
     if (x.matches) {
       var myScript = function myScript() {
         var windowSize = document.documentElement.clientWidth;
