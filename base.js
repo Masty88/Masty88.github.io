@@ -74,7 +74,55 @@ function changeColorLogoReverse() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                               slideshow index                              */
+/*                               PAGE TRANSITION                              */
+/* -------------------------------------------------------------------------- */
+
+var divTransition=document.getElementsByClassName("page-transition");
+//recover the logo
+var logoTransition=document.getElementsByClassName("logo-transition");
+//recover the link
+var linkTranstion=document.getElementsByClassName("link-transition");
+//burger
+let hrefPage=linkTranstion[0].dataset.link;
+//recover the global wrapper
+var globalWrapper=document.getElementsByClassName("wrapper");
+//intro transition
+var divTransitionIntro=document.getElementsByClassName("page-transition-intro");
+
+linkTransitionListener();
+
+function linkTransitionListener(){
+  for(let i=0;i<linkTranstion.length;i++){
+    linkTranstion[i].addEventListener("click",goToPage)
+  }
+}
+
+function goToPage(){
+  console.log("ok");
+  divTransition[0].style.display="flex";
+  divTransition[0].addEventListener("animationend",function(){
+    console.log("ok");
+    logoTransition[0].style.display="block";
+    logoTransition[0].addEventListener("animationend",function(){
+      window.location.href= hrefPage ;
+    })
+  })
+
+}
+
+window.onload=init();
+
+function init(){
+ globalWrapper[0].style.display="block";
+ globalWrapper[0].addEventListener("animationend",function(){
+   divTransitionIntro[0].style.display="none";
+   globalWrapper[0].style.cssText="animation:none;";
+ })
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                               PAGE HOME                                    */
 /* -------------------------------------------------------------------------- */
 var home=document.getElementById("wrapper_home");
 if(home){
@@ -363,8 +411,9 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
   if (x.matches && deviceIsMobile===false ) {
-    console.log(deviceIsMobile);
-    console.log("ok");
+
+/* ------------ script found on stackoverflow to prevent default ------------ */
+
     const eventListenerOptionsSupported = () => {
       let supported = false;
 
@@ -428,7 +477,37 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     }
 
 
+/* --------------- transform scroll form vertical to horizontal -------------- */
+  //recover the div to scroll
   var divToscroll=document.getElementById("portfolio");
+  // recover backslider
+  var backPortfolio=document.getElementById("back__portfolio");
+  //recover the project in fron porfolio
+  var frontproject=document.getElementsByClassName("project");
+  console.table(frontproject);
+
+ scrollBack();
+
+  //add listener to scroll
+  function scrollBack(){
+    //give event to all project
+    for(let i=0;i<frontproject.length;i++){
+      frontproject[i].addEventListener("mouseover",translateXBack
+      )
+      frontproject[i].addEventListener("mouseout",removeTranslate
+      )
+    function translateXBack(){
+      console.log("eventin");
+      backPortfolio.style.transform="translateX(" + (-i*15) + "%)";
+      backPortfolio.style.transition= "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+     }
+     function removeTranslate(){
+      console.log("eventout");
+      document.removeEventListener("mouseover",translateXBack
+      )
+     }
+    }
+  }
 
   divToscroll.addEventListener('wheel', function(e)
   {
@@ -444,6 +523,9 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     document.body.scrollLeft -= delta;
     e.preventDefault();
   });
+
+
+
   }// If media query matches
    else if(x.matches && deviceIsMobile===true){
     mainPortfolio.style.cssText="overflow-y: hidden;"
@@ -464,33 +546,3 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
 
-/* -------------------------------------------------------------------------- */
-/*                               PAGE TRANSITION                              */
-/* -------------------------------------------------------------------------- */
-/*var trans = document.getElementById("transition");
-var trans2 = document.getElementById("transition2");
-
-//recover link
-var linkPortfolio=document.getElementsByClassName("portfolio");
-linkPortfolio[0].addEventListener("click", transition);
-
-
-function transition(link) {
-  var promise= new Promise((resolve,reject)=>{
-    trans.style.display="block";
-    trans.animate([{ left: "1920"+ "px" }, { left: "-1920" + "px" }], {
-      duration: 10000,
-      iterations: 1,
-      fill: "forwards"
-    });
-    trans.addEventListener("animationend", resolve(link))
-  })
-  promise.then((value)=>{
-    window.location.href=value;//at the end
-  })
-}
-
-function myFunction(link){
-window.location=link;//at the end
-}
-*/

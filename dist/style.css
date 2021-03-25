@@ -156,10 +156,15 @@ body {
   height: 100%;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .wrapper {
   background-color: #101111;
   width: 100%;
   height: 100%;
+  animation: pageTransition 1s cubic-bezier(0.61, 0.12, 0.07, 0.92) forwards;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -235,6 +240,72 @@ body {
 /*                                   mobile                                   */
 /* -------------------------------------------------------------------------- */
 @media screen and (min-width: 320px) {
+  /* ---------------------------- page transition: ---------------------------- */
+  .page-transition {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    background-color: #101111;
+    position: absolute;
+    z-index: 100;
+    transform: translateX(100%);
+    animation: pageTransition 1s cubic-bezier(0.61, 0.12, 0.07, 0.92) forwards;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .page-transition .logo-transition {
+    width: 80%;
+    height: 30%;
+    background-color: #f9ca24;
+    opacity: 0;
+    animation: logoTransition 0.5s linear forwards;
+    display: none;
+  }
+
+  .page-transition-intro {
+    width: 100%;
+    height: 100%;
+    background-color: #101111;
+    position: absolute;
+    z-index: 100;
+    animation: pageTransitionReverse 1s cubic-bezier(0.61, 0.12, 0.07, 0.92) forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .page-transition-intro .logo-transition {
+    width: 80%;
+    height: 30%;
+    background-color: #f9ca24;
+    opacity: 1;
+    display: block;
+  }
+
+  @keyframes pageTransition {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  @keyframes pageTransitionReverse {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes logoTransition {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   /* ----------------------------------- nav ---------------------------------- */
   .mainnav {
     width: 100%;
@@ -283,18 +354,6 @@ body {
   }
   .mainnav .logo-fix #logo svg path {
     stroke: black;
-  }
-  .mainnav .logo-fix #logo:after {
-    content: "";
-    position: absolute;
-    bottom: 37px;
-    width: 5%;
-    left: 70px;
-    right: 0;
-    height: 0.2em;
-    border-top: 1px solid white;
-    z-index: -1;
-    transform: rotate(90deg);
   }
   .mainnav .logo-fix #logo span {
     color: white;
@@ -547,7 +606,8 @@ body {
     height: 100%;
   }
 
-  #slide4, #lastclone {
+  #slide4,
+#lastclone {
     width: 100%;
     background-color: orange;
     height: 100%;
@@ -759,6 +819,7 @@ body {
     width: 100%;
     height: 180px;
     background-image: url(../img/dream_project.jpg);
+    background-position: center;
     background-size: cover;
     filter: grayscale(100%);
     display: flex;
@@ -810,10 +871,6 @@ body {
   #back__portfolio {
     display: none;
   }
-
-  /* -------------------------------------------------------------------------- */
-  /*                                 transition                                 */
-  /* -------------------------------------------------------------------------- */
 }
 /* -------------------------------------------------------------------------- */
 /*                              mobile horizontal                             */
@@ -1125,45 +1182,17 @@ body {
     z-index: 2;
     top: 0px;
   }
-  #portfolio__main__mobile::before {
-    content: "";
-    position: fixed;
-    height: 0.5em;
-    top: 63%;
-    border-top: 2px solid white;
-    z-index: 1;
-    opacity: 1;
-    transition: border-top 2s ease-in;
-    width: 90%;
-    left: 5%;
-  }
   #portfolio__main__mobile #first__project {
     width: 100%;
-    height: 200px;
-    background-image: url(../img/dream_project.jpg);
-    background-size: cover;
-    filter: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    height: 190px;
+    background-color: red;
     margin: 0 20px;
-    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    filter: none;
   }
   #portfolio__main__mobile #first__project::before {
     display: none;
-  }
-  #portfolio__main__mobile #first__project::after {
-    content: "";
-    position: absolute;
-    height: 0.5em;
-    top: 63%;
-    border-top: 2px solid yellow;
-    z-index: 1;
-    opacity: 0.5;
-    transition: border-top 2s ease-in;
-    width: 5%;
-    left: 2.3%;
   }
   #portfolio__main__mobile #first__project p {
     font-family: "Open Sans", sans-serif;
@@ -1179,7 +1208,7 @@ body {
     margin: 0 20px;
     width: 100%;
     height: 200px;
-    background-image: url(../img/dream_project.jpg);
+    background-image: url(../img/bad-story.jpg);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -1187,18 +1216,6 @@ body {
     flex-direction: column;
     margin: 0 20px;
     box-sizing: border-box;
-  }
-  #portfolio__main__mobile #second__project::after {
-    content: "";
-    position: absolute;
-    height: 0.5em;
-    top: 63%;
-    border-top: 2px solid #101111;
-    z-index: 1;
-    opacity: 0.5;
-    transition: border-top 2s ease-in;
-    width: 5%;
-    left: 4.3%;
   }
   #portfolio__main__mobile #second__project p {
     font-family: "Open Sans", sans-serif;
@@ -1210,14 +1227,48 @@ body {
   #portfolio__main__mobile #third__project {
     width: 100%;
     height: 190px;
-    background-color: blue;
+    background-color: red;
     margin: 0 20px;
+    width: 100%;
+    height: 200px;
+    background-image: url(../img/lost-paradise.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+    box-sizing: border-box;
+  }
+  #portfolio__main__mobile #third__project p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #acacac;
+    text-align: center;
   }
   #portfolio__main__mobile #fourth__project {
     width: 100%;
     height: 190px;
-    background-color: pink;
+    background-color: red;
     margin: 0 20px;
+    width: 100%;
+    height: 200px;
+    background-image: url(/img/dystopye.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+    box-sizing: border-box;
+  }
+  #portfolio__main__mobile #fourth__project p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #acacac;
+    text-align: center;
   }
   #portfolio__main__mobile .container__info {
     position: absolute;
@@ -1236,36 +1287,20 @@ body {
     position: absolute;
     top: 120%;
   }
-  #portfolio__main__mobile span {
-    display: block;
-    position: relative;
-    height: 0.5em;
-    top: 69%;
-    border-top: 2px solid white;
-    z-index: 1;
-    opacity: 0.5;
-    transition: border-top 2s ease-in;
-    width: 10%;
-    left: 0%;
-  }
-
-  #first__project:hover span {
-    display: block;
-  }
 
   #back__portfolio {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 100%;
+    width: 200%;
     height: 100vh;
     font-family: "didonesque";
     color: white;
     overflow-x: auto;
     position: absolute;
     top: 0;
-    left: 5%;
+    left: 3%;
     opacity: 0.5;
     z-index: 0;
   }
@@ -1280,9 +1315,26 @@ body {
   #back__portfolio .second__project {
     width: 100%;
     height: 400px;
-    background-image: url(../img/dream_project.jpg);
+    background-image: url(../img/bad-story.jpg);
     background-size: cover;
     filter: grayscale(100%);
+    margin: 0 20px;
+  }
+  #back__portfolio .third__project {
+    width: 100%;
+    height: 400px;
+    background-image: url(../img/lost-paradise.jpg);
+    background-size: cover;
+    filter: grayscale(100%);
+    margin: 0 20px;
+  }
+  #back__portfolio .fourth__project {
+    width: 100%;
+    height: 400px;
+    background-image: url(/img/dystopye.jpg);
+    background-size: cover;
+    filter: grayscale(100%);
+    margin: 0 20px;
   }
 }
 /* -------------------------------------------------------------------------- */
@@ -1484,7 +1536,6 @@ body {
     align-items: center;
     flex-direction: row;
     width: 200%;
-    background-color: #101111;
     height: 100vh;
     font-family: "didonesque";
     color: white;
@@ -1493,11 +1544,14 @@ body {
   }
   #portfolio__main__mobile #first__project {
     width: 100%;
-    max-width: 500px;
-    height: 300px;
-    background-image: url(../img/dream_project.jpg);
+    max-width: 600px;
+    height: 400px;
+  }
+  #portfolio__main__mobile #second__project {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
     background-size: cover;
-    filter: grayscale(0%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1505,48 +1559,81 @@ body {
     margin: 0 20px;
     box-sizing: border-box;
   }
-  #portfolio__main__mobile #first__project .container__info {
-    position: absolute;
-    top: 350px;
+  #portfolio__main__mobile #third__project {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+    box-sizing: border-box;
   }
-  #portfolio__main__mobile #first__project h3 {
+  #portfolio__main__mobile #fourth__project {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px;
+    box-sizing: border-box;
+  }
+  #portfolio__main__mobile .container__info {
+    position: absolute;
+    top: 75%;
+    margin-top: 20px;
+  }
+  #portfolio__main__mobile h3 {
     font-size: 20px;
     text-align: center;
   }
-  #portfolio__main__mobile #first__project::before {
-    content: "";
-    position: relative;
-    height: 0.5em;
-    left: -105px;
-    margin-top: 5px;
-    border-top: 1px solid white;
-    z-index: 1;
-    transition: border-top 2s ease-in;
-    width: 10%;
-  }
-  #portfolio__main__mobile #first__project p {
+  #portfolio__main__mobile p {
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     margin-top: 8px;
     color: #acacac;
     text-align: center;
   }
-  #portfolio__main__mobile #second__project {
-    width: 100%;
-    height: 300px;
-    background-color: red;
+
+  #back__portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 300%;
+    height: 100vh;
+    font-family: "didonesque";
+    color: white;
+    overflow-x: auto;
+    position: fixed;
+    background-color: #101111;
+    top: 0;
+    left: -30%;
+    opacity: 1;
+    z-index: 0;
+  }
+  #back__portfolio .first__project {
+    width: 20%;
+    max-width: 800px;
+    height: 600px;
+    opacity: 0.4;
+    background-size: cover;
+    filter: grayscale(100%);
     margin: 0 20px;
   }
-  #portfolio__main__mobile #third__project {
-    width: 100%;
-    height: 190px;
-    background-color: blue;
-    margin: 0 20px;
-  }
-  #portfolio__main__mobile #fourth__project {
-    width: 100%;
-    height: 190px;
-    background-color: pink;
-    margin: 0 20px;
+  #back__portfolio .second__project,
+#back__portfolio .third__project,
+#back__portfolio .fourth__project {
+    width: 20%;
+    height: 600px;
+    max-width: 800px;
+    background-size: cover;
+    filter: grayscale(100%);
+    opacity: 0.4;
   }
 }
