@@ -188,7 +188,7 @@ body::-webkit-scrollbar {
     background-color: $backcolor-main;
     width: 100%;
     height: 100%;
-     animation: pageTransition 1s cubic-bezier(.61,.12,.07,.92) forwards;
+     animation: pageTransition 1.5s cubic-bezier(.61,.12,.07,.92) forwards;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1602,7 +1602,7 @@ body::-webkit-scrollbar {
         }
 
         .desktop-nav {
-            margin-right: 90px;
+            margin-right: 0px;
             display: flex;
 
             li {

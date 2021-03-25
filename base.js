@@ -507,12 +507,11 @@ mainPortfolio.style.cssText="overflow-y: visible;";
       frontproject[i].addEventListener("mouseout",removeTranslate
       )
     function translateXBack(){
-      console.log("eventin");
+
       backPortfolio.style.transform="translateX(" + (-i*15) + "%)";
       backPortfolio.style.transition= "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
      }
      function removeTranslate(){
-      console.log("eventout");
       document.removeEventListener("mouseover",translateXBack
       )
      }
