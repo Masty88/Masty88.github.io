@@ -401,6 +401,8 @@ if ( mainPortfolio) {
 
 
 var x = window.matchMedia("(min-width: 1024px)");
+var y = window.matchMedia("(min-width: 768px)");
+
 var deviceIsMobile = false; //At the beginning we set this flag as false. If we can detect the device is a mobile device in the next line, then we set it as true.
 
 
@@ -525,9 +527,8 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     e.preventDefault();
   });
 
-
   }// If media query matches
-   else if(x.matches && deviceIsMobile===true){
+   else if(y.matches ||x.matches && deviceIsMobile===true){
     console.log(deviceIsMobile);
     mainPortfolio.style.cssText="overflow-y: hidden;"
     var windowSize=document.documentElement.clientWidth;

@@ -1455,7 +1455,7 @@ body::-webkit-scrollbar {
             margin: 0 20px;
             width: 100%;
             height: 200px;
-            background-image: url(/img/dystopye.jpg);
+            background-image: url(../img/dystopye.jpg);
             background-size: cover;
             //filter: grayscale(0%);
             @include columnflex();
@@ -1541,7 +1541,7 @@ body::-webkit-scrollbar {
         .fourth__project {
             width: 100%;
             height: 400px;
-            background-image: url(/img/dystopye.jpg);
+            background-image: url(../img/dystopye.jpg);
             background-size: cover;
             filter: grayscale(100%);
             margin: 0 20px;
