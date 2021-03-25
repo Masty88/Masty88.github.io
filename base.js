@@ -396,6 +396,10 @@ var sphereAnimation = (function() {
 /* -------------------------------------------------------------------------- */
 //recover main
 var mainPortfolio=document.getElementById("portfolio");
+//var back potfolio
+var backPortfolio=document.getElementById("back__portfolio");
+//var main portfolio
+var frontPortfolio=document.getElementById("portfolio__main__mobile");
 
 if ( mainPortfolio) {
 
@@ -412,8 +416,11 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
    console.log("ok");
 }
 
-  if (x.matches && deviceIsMobile===false ) {
+  if ((x.matches || y.matches) && deviceIsMobile===false ) {
     console.log(deviceIsMobile);
+
+ back__portfolio.style.cssText="overflow-y: visible;background-color:#101111;width:300%;overflow-x: auto;position: fixed;opacity:1;";
+mainPortfolio.style.cssText="overflow-y: visible;";
 
 /* ------------ script found on stackoverflow to prevent default ------------ */
 
