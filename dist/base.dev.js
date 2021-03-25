@@ -425,7 +425,9 @@ if (mainPortfolio) {
       }
     };
 
+    console.log(deviceIsMobile);
     /* ------------ script found on stackoverflow to prevent default ------------ */
+
     var eventListenerOptionsSupported = function eventListenerOptionsSupported() {
       var supported = false;
 
@@ -503,6 +505,7 @@ if (mainPortfolio) {
     });
   } // If media query matches
   else if (x.matches && deviceIsMobile === true) {
+      console.log(deviceIsMobile);
       mainPortfolio.style.cssText = "overflow-y: hidden;";
       var windowSize = document.documentElement.clientWidth;
       window.addEventListener("resize", function () {

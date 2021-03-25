@@ -259,7 +259,7 @@ body::-webkit-scrollbar {
     height: 30%;
     background-color: #f9ca24;
     opacity: 0;
-    animation: logoTransition 0.5s linear forwards;
+    animation: logoTransition 0.2s linear forwards;
     display: none;
   }
 

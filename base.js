@@ -411,6 +411,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 }
 
   if (x.matches && deviceIsMobile===false ) {
+    console.log(deviceIsMobile);
 
 /* ------------ script found on stackoverflow to prevent default ------------ */
 
@@ -525,9 +526,9 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
   });
 
 
-
   }// If media query matches
    else if(x.matches && deviceIsMobile===true){
+    console.log(deviceIsMobile);
     mainPortfolio.style.cssText="overflow-y: hidden;"
     var windowSize=document.documentElement.clientWidth;
     window.addEventListener("resize",function(){
