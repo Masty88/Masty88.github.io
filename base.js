@@ -83,32 +83,43 @@ var logoTransition=document.getElementsByClassName("logo-transition");
 //recover the link
 var linkTranstion=document.getElementsByClassName("link-transition");
 //burger
-let hrefPage=linkTranstion[0].dataset.link;
+
 //recover the global wrapper
 var globalWrapper=document.getElementsByClassName("wrapper");
 //intro transition
 var divTransitionIntro=document.getElementsByClassName("page-transition-intro");
 
+console.table(linkTranstion);
 linkTransitionListener();
 
 function linkTransitionListener(){
   for(let i=0;i<linkTranstion.length;i++){
-    linkTranstion[i].addEventListener("click",goToPage)
+    linkTranstion[i].addEventListener("click",checkIndex);
   }
 }
 
-function goToPage(){
+/*function goToPage(){
   console.log("ok");
   divTransition[0].style.display="flex";
   divTransition[0].addEventListener("animationend",function(){
     console.log("ok");
     logoTransition[0].style.display="block";
     logoTransition[0].addEventListener("animationend",function(){
-      window.location.href= hrefPage ;
-    })
   })
+}*/
 
-}
+function checkIndex(event){
+  console.log("ok");
+  var indexLink= Array.from(linkTranstion).indexOf(event.target) ;
+  divTransition[0].style.display="flex";
+  divTransition[0].addEventListener("animationend",function(){
+    console.log("ok");
+    logoTransition[0].style.display="block";
+    logoTransition[0].addEventListener("animationend",function(){
+      let hrefPage=linkTranstion[indexLink].dataset.link;
+	    window.location.href= hrefPage ;
+  })
+})}
 
 window.onload=init();
 
@@ -553,4 +564,40 @@ mainPortfolio.style.cssText="overflow-y: visible;";
 
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                PROJECT PAGE                                */
+/* -------------------------------------------------------------------------- */
+
+var projectPage=document.getElementById("project__page")
+
+if(projectPage){
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+}
 

@@ -229,7 +229,7 @@
         <ul class="desktop-nav">
           <li><a class="portfolio link-transition" href="#" data-link="index.html">Home</a></li>
           <li><a class="portfolio link-transition" href="#" data-link="porfolio.html">Portfolio</a></li>
-          <li><a class="portfolio link-transition" href="#" data-link="biographie.html">Biographie</a></li>
+          <li><a href="#">Biographie</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </ul>
@@ -245,53 +245,88 @@
 
     </nav>
 
+
+
 <!-- -------------------------------- main --------------------------------- -->
-<main id="portfolio" >
-    <div id="back__portfolio">
+ <main class="project__page" id="project__page">
+    <div class="container">
+        <div class="mySlides">
+          <div class="numbertext">1 / 5</div>
+          <img src="img/dream/_DSC0010.jpg">
+        </div>
 
-        <section class="first__project">
-        </section>
-        <section class="second__project">
-        </section>
-        <section class="third__project">
-        </section>
-        <section class="fourth__project">
-        </section>
-       </div>
-    <div id="portfolio__main__mobile" >
+        <div class="mySlides">
+          <div class="numbertext">2 / 5</div>
+          <img src="img/dream/_DSC0059.jpg">
+        </div>
 
-    <section id="first__project" class="project">
-        <a class="link-transition" href="#" data-link="dream.html"></a>
-    <div class="container__info">
-        <h3><a class="link-transition" href="#" data-link="dream.html">Le pouvoir des rêves </a></h3>
-        <p>Photographie</p>
+        <div class="mySlides">
+          <div class="numbertext">3 / 5</div>
+          <img src="img/dream/_DSC5705.jpg">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">4 / 5</div>
+          <img src="img/dream/_DSC5722.jpg" >
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">5 / 5</div>
+          <img src="img/dream/_DSC0031.jpg" >
+        </div>
+
+
+        <div class="container-button">
+            <a class="prev_proj" onclick="plusSlides(-1)">❮</a>
+        <a class="next_proj" onclick="plusSlides(1)">❯</a>
+        
     </div>
 
-    </section>
-    <section id="second__project" class="project">
-        <a class="link-transition" href="#" data-link="dream.html"></a>
-    <div class="container__info">
-         <h3>Une mouvaise affaire </h3>
-        <p>Photographie</p>
-    </div>
-    </section>
-    <section id="third__project" class="project">
-        <div class="container__info">
-            <h3>Le paradis perdu </h3>
-            <p>Photographie</p>
+        <div class="caption-container">
+          <p id="caption"></p>
         </div>
-    </section>
-    <section id="fourth__project" class="project">
 
-             <div class="container__info">
-              <h3>Dystopies </h3>
-            <p>Photographie</p>
+        <div class="row">
+          <div class="column">
+            <img class="demo cursor" src="img/dream/_DSC0010.jpg"" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/dream/_DSC0059.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/dream/_DSC5705.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/dream/_DSC5722.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/dream/_DSC0031.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+          </div>
         </div>
-    </section>
-    <section id="fifth__project"">My First project</section>
-</div>
+        <section class="text">
+            <h3>
+                <span>INTRO</span><br>
+                Unique digital platform dedicated to
+                promoting the Principality of Monaco
+            </h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet risus vel orci ornare suscipit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet risus vel orci ornare suscipit.
+            </p>
+        </section>
+        <section class="next-project">
 
-</main>
+            <h4>
+                <span>NEXT PROJECT</span><br>
+                Une mouvaise affaire
+             </h4>
+
+        </section>
+        <div class="container-next-project">
+            <img src="img/bad-story.jpg">
+           </div>
+      </div>
+
+ </main>
   </div>
   <script src="base.js"></script>
 </body>
