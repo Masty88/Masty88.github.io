@@ -177,11 +177,12 @@ html {
 body {
     width: 100%;
     height: 100%;
+    background-color: $backcolor-main;
 }
 
 body::-webkit-scrollbar {
     display: none;
-  }
+}
 
 // wrapper for all element in page
 .wrapper {
@@ -189,7 +190,8 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
 
-     animation: pageTransition 1s cubic-bezier(.61,.12,.07,.92) forwards;
+    margin:0 auto;
+    animation: pageTransition 1s cubic-bezier(.61, .12, .07, .92) forwards;
 }
 
 
@@ -286,83 +288,115 @@ body::-webkit-scrollbar {
 @media screen and (min-width: 320px) {
 
     /* ---------------------------- page transition: ---------------------------- */
-   .page-transition{
-       width: 100%;
-       overflow: hidden;
-       height: 100%;
-       background-color: $backcolor-main;
-       position: absolute;
-       z-index: 100;
-       transform: translateX(100%);
-       animation: pageTransition 1s cubic-bezier(.61,.12,.07,.92) forwards;
-       display: none;
-       justify-content: center;
-       align-items: center;
-       .logo-transition {
-         width:80%;
-         height: 30%;
-         background-color: $burgercolor;
-         opacity: 0;
-         animation: logoTransition 0.2s  linear forwards;
-         display: none;
-       }
-   }
-   .page-transition-intro{
+    .page-transition {
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+        background-color: $backcolor-main;
+        position: absolute;
+        z-index: 100;
+        transform: translateX(100%);
+        animation: pageTransition 1s cubic-bezier(.61, .12, .07, .92) forwards;
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        .logo-transition {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: logoTransition 1s linear forwards;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            img {
+                width: 50%;
+            }
+
+            p {
+                color: white;
+                font-size: 20px;
+                text-align: center;
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .page-transition-intro {
         width: 100%;
         height: 100%;
         background-color: $backcolor-main;
         position: absolute;
         z-index: 100;
         //transform: translateX(100%);
-        animation: pageTransitionReverse 1s cubic-bezier(.61,.12,.07,.92) forwards;
+        animation: pageTransitionReverse 1s cubic-bezier(.61, .12, .07, .92) forwards;
         display: flex;
         justify-content: center;
         align-items: center;
+
         .logo-transition {
-          width:80%;
-          height: 30%;
-          background-color: $burgercolor;
-          opacity: 1;
-         // animation: logoTransition 1s  linear forwards;
-          display: block;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            // animation: logoTransition 1s  linear forwards;
+            display: flex;
+
+            img {
+                width: 50%;
+            }
+
+            p {
+                color: white;
+                font-size: 20px;
+                text-align: center;
+                margin-top: 10px;
+            }
         }
 
-   }
-
-
-   @keyframes pageTransition{
-       0%{
-        transform: translateX(100%);
-       }
-
-       100%{
-        transform: translateX(0%);
-       }
-   }
-
-   @keyframes pageTransitionReverse{
-    0%{
-     transform: translateX(0%);
     }
 
-    100%{
-     transform: translateX(-100%);
-    }
-}
 
-   @keyframes logoTransition{
-    from{
-        opacity: 0;
-       }
-       to{
-        opacity: 1;
-       }
-   }
+    @keyframes pageTransition {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @keyframes pageTransitionReverse {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes logoTransition {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
 
     /* ----------------------------------- nav ---------------------------------- */
 
     .mainnav {
         width: 100%;
+        margin: 0 auto;
         //background-color: red;
         display: flex;
         justify-content: space-between;
@@ -425,7 +459,8 @@ body::-webkit-scrollbar {
                     font-family: "Open Sans", sans-serif;
                     font-size: 12px;
                 }
-                .line-nav{
+
+                .line-nav {
                     color: white;
                     border: solid 1px;
                     position: relative;
@@ -439,6 +474,7 @@ body::-webkit-scrollbar {
                 // height: 20px;
                 @include columnflex();
                 margin-right: 20px;
+
                 .burger {
                     top: -13px;
                     background: #8df4e9;
@@ -523,9 +559,9 @@ body::-webkit-scrollbar {
         .animation-wrapper {
             width: 100%;
             // padding-bottom: 50%;
-            position: absolute;
+           position: absolute;
             z-index: 0;
-            @include centerflex();
+           @include centerflex();
         }
 
         .sphere-animation {
@@ -536,6 +572,9 @@ body::-webkit-scrollbar {
             height: 100%;
             // margin: -290px 0 0 -290px;
             @include centerflex();
+            svg{
+                max-width: 1120px;
+            }
         }
 
         .Layer_1 path {
@@ -737,7 +776,7 @@ body::-webkit-scrollbar {
         .animation-wrapper {
             width: 100%;
             // padding-bottom: 50%;
-            position: absolute;
+            //position: absolute;
             z-index: 0;
 
         }
@@ -750,6 +789,7 @@ body::-webkit-scrollbar {
             height: 100%;
             // margin: -290px 0 0 -290px;
             @include centerflex();
+
         }
 
         .Layer_2 path {
@@ -982,13 +1022,14 @@ body::-webkit-scrollbar {
             height: 180px;
             background-color: violet;
         }
+
         .container__info {
 
 
 
-           h3 a{
+            h3 a {
 
-               color: white;
+                color: white;
                 font-size: 20px;
                 text-align: center;
                 z-index: 10;
@@ -1011,222 +1052,240 @@ body::-webkit-scrollbar {
         display: none;
     }
 
-/* -------------------------------------------------------------------------- */
-/*                                PROJECT PAGE                                */
-/* -------------------------------------------------------------------------- */
-  .project__page
-  {width: 100%;
-    height: auto;
-    overflow-x: hidden;
-    color: white;
-    position: absolute;
-    top: 0px;
-}
-.container{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    @include columnflex();
-    justify-content: flex-start;
-    background-color: $backcolor-main;
-}
-/* Hide the images by default */
-.mySlides {
-    display: none;
-    @include centerflex();
-    overflow: hidden;
-    height: 90vh;
-    position: relative;
-    img{
-        position: relative;
-      //  width: 180%;
-        height: 100%;
-       // width: auto;
-    }
-  }
-
-  .position-1{
-      left: -120px;;
-  }
-  .position-2{
-    left: 200px;
-  }
-  .position-3{
-    left: -50px;
-  }
-  .position-4{
-    left: 200px;
-  }
-  .position-5{
-    left: -20px;
-  }
-
-  /* Add a pointer when hovering over the thumbnail images */
-  .cursor {
-    cursor: pointer;
-  }
-
-  /* Next & previous buttons */
-  .prev_proj,
-  .next_proj {
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-    margin: 0 20px;
-  }
-
-  /* Position the "next button" to the right */
-  .next_proj {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  //next and prev btn
-  .container-button{
-  width: 100%;
-  position: absolute;
-  top: 20%;
-  display: flex;
-  justify-content: space-between;
-
-  }
-
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-
-  /* Container for image text */
-  .caption-container {
-    text-align: center;
-    background-color: #222;
-    padding: 2px 16px;
-    color: white;
-  }
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .row{
-      display: flex;
-      width: 100%;
-      height: 10vh;
-
-  }
-
-  /* Six columns side by side */
-  .column {
-
-    width: 100%;
-    img{width: 100%;}
-  }
-
-  /* Add a transparency effect for thumnbail images */
-  .demo {
-    opacity: 0.4;
-  }
-
-  .active,
-  .demo:hover {
-    opacity: 1;
-  }
-
-/* ---------------------------------- TEXT ---------------------------------- */
-.text{
-    width: 100%;
-    height: auto;
-    font-family: "didonesque";
-    @include columnflex();
-    margin-top: 10%;
-
-    h3{
-        width: 80%;
-        font-size: 18px;
+    /* -------------------------------------------------------------------------- */
+    /*                                PROJECT PAGE                                */
+    /* -------------------------------------------------------------------------- */
+    .project__page {
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
         color: white;
-        text-align: left;
-        line-height: 22px;
-        margin-bottom: 20px;
-        span{
-            margin-right:100% ;
-            margin-bottom: 40px;
-            font-size: 12px;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 800;
-        }
+        position: absolute;
+        top: 0px;
     }
-    p{
-        width: 80%;
-        text-align: left;
-        font-family: "Open Sans", sans-serif;
-        max-width: 32ch;
-    }
-}
 
-.next-project{
-    width: 80%;
-    margin-top: 30px;
-    margin-right: auto;
-    height: 20vh;
-    background-color: white;
-    @include columnflex();
-    a{
+    .container {
         width: 100%;
         height: 100%;
         position: relative;
+        @include columnflex();
+        justify-content: flex-start;
+        background-color: $backcolor-main;
     }
-    h4{
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+        @include centerflex();
+        overflow: hidden;
+        height: 90vh;
+        position: relative;
+
+        img {
+            position: relative;
+            //  width: 180%;
+            height: 100%;
+            // width: auto;
+        }
+    }
+
+    .position-1 {
+        left: -120px;
+        ;
+    }
+
+    .position-2 {
+        left: 200px;
+    }
+
+    .position-3 {
+        left: -50px;
+    }
+
+    .position-4 {
+        left: 200px;
+    }
+
+    .position-5 {
+        left: -20px;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+        cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev_proj,
+    .next_proj {
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+        margin: 0 20px;
+    }
+
+    /* Position the "next button" to the right */
+    .next_proj {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    //next and prev btn
+    .container-button {
         width: 100%;
-        text-align: left;
-        color: $backcolor-main;
-        font-size: 16px;
+        position: absolute;
+        top: 20%;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* Container for image text */
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .row {
+        display: flex;
+        width: 100%;
+        height: 10vh;
+
+    }
+
+    /* Six columns side by side */
+    .column {
+
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+        opacity: 0.4;
+    }
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+    /* ---------------------------------- TEXT ---------------------------------- */
+    .text {
+        width: 100%;
+        height: auto;
         font-family: "didonesque";
-        line-height: 20px;
-        margin-left: 40%;
-        span{
-            width: 63%;
-            font-size: 12px;
+        @include columnflex();
+        margin-top: 10%;
+
+        h3 {
+            width: 80%;
+            font-size: 18px;
+            color: white;
+            text-align: left;
+            line-height: 22px;
+            margin-bottom: 20px;
+
+            span {
+                margin-right: 100%;
+                margin-bottom: 40px;
+                font-size: 12px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 800;
+            }
+        }
+
+        p {
+            width: 80%;
+            text-align: left;
             font-family: "Open Sans", sans-serif;
-            font-weight: 800;
+            max-width: 32ch;
+        }
+    }
+
+    .next-project {
+        width: 80%;
+        margin-top: 30px;
+        margin-right: auto;
+        height: 20vh;
+        background-color: white;
+        @include columnflex();
+
+        a {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        h4 {
+            width: 100%;
+            text-align: left;
             color: $backcolor-main;
+            font-size: 16px;
+            font-family: "didonesque";
+            line-height: 20px;
+            margin-left: 40%;
+
+            span {
+                width: 63%;
+                font-size: 12px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 800;
+                color: $backcolor-main;
+            }
+
         }
 
     }
 
-}
-
-.container-next-project{
-    width: 100%;
-    overflow:hidden;
-    position: relative;
-    bottom: 18px;
-    img{
+    .container-next-project {
         width: 100%;
-        margin-left: 20%;
-    }
-    a{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    }
+        overflow: hidden;
+        position: relative;
+        bottom: 18px;
 
-}
+        img {
+            width: 100%;
+            margin-left: 20%;
+        }
+
+        a {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+    }
 
 }
 
@@ -1442,51 +1501,55 @@ body::-webkit-scrollbar {
         @include columnflex();
     }
 
-/* -------------------------------------------------------------------------- */
-/*                                PROJECT PAGE                                */
-/* -------------------------------------------------------------------------- */
+    /* -------------------------------------------------------------------------- */
+    /*                                PROJECT PAGE                                */
+    /* -------------------------------------------------------------------------- */
 
-/* Hide the images by default */
-.mySlides {
-    display: none;
-    @include centerflex();
-    overflow: hidden;
-    height: auto;
-    position: static;
-    img{
-
-        width: 100%;
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+        @include centerflex();
+        overflow: hidden;
         height: auto;
-       // width: auto;
-    }
-  }
-  //next and prev btn
-  .container-button{
-    width: 100%;
-    position: absolute;
-    top: 15%;
-    display: flex;
-    justify-content: space-between;
+        position: static;
+
+        img {
+
+            width: 100%;
+            height: auto;
+            // width: auto;
+        }
     }
 
-    .text{
+    //next and prev btn
+    .container-button {
+        width: 100%;
+        position: absolute;
+        top: 15%;
+        display: flex;
+        justify-content: space-between;
+    }
 
-        h3{
+    .text {
+
+        h3 {
             width: 80%;
             font-size: 18px;
             color: white;
             text-align: left;
             line-height: 22px;
             margin-bottom: 20px;
-            span{
-                margin-right:100% ;
+
+            span {
+                margin-right: 100%;
                 margin-bottom: 40px;
                 font-size: 12px;
                 font-family: "Open Sans", sans-serif;
                 font-weight: 800;
             }
         }
-        p{
+
+        p {
             width: 80%;
             text-align: left;
             font-family: "Open Sans", sans-serif;
@@ -1494,18 +1557,19 @@ body::-webkit-scrollbar {
         }
     }
 
-    .container-next-project{
+    .container-next-project {
         width: 100%;
-        overflow:hidden;
+        overflow: hidden;
         position: relative;
         bottom: 8px;
-        img{
+
+        img {
             width: 50%;
             margin-left: 40%;
             height: auto;
         }
 
-}
+    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1513,6 +1577,43 @@ body::-webkit-scrollbar {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (min-width: 768px) {
+
+    /* ---------------------------- page transition: ---------------------------- */
+    .page-transition {
+
+        .logo-transition {
+
+            img {
+                width: 20%;
+            }
+
+            p {
+                color: white;
+                font-size: 16px;
+                text-align: center;
+                margin-top: 10px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .page-transition-intro {
+
+        .logo-transition {
+
+            img {
+                width: 20%;
+            }
+
+            p {
+                color: white;
+                font-size: 16px;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+
+    }
 
     /* ----------------------------------- nav ---------------------------------- */
     .mainnav {
@@ -1545,8 +1646,9 @@ body::-webkit-scrollbar {
                     margin-left: 25px;
                     font-size: 20px;
                 }
-                .line-nav{
-                    top:-17px;
+
+                .line-nav {
+                    top: -17px;
                     height: 40px;
                 }
             }
@@ -1707,7 +1809,7 @@ body::-webkit-scrollbar {
                 display: none;
             }
 
-            a{
+            a {
                 width: 100%;
                 height: 100%;
                 position: relative;
@@ -1735,12 +1837,14 @@ body::-webkit-scrollbar {
             @include columnflex();
             margin: 0 20px;
             box-sizing: border-box;
-            a{
+
+            a {
                 width: 100%;
                 height: 100%;
                 position: relative;
 
             }
+
             p {
                 font-family: "Open Sans", sans-serif;
                 font-size: 14px;
@@ -1802,8 +1906,8 @@ body::-webkit-scrollbar {
             top: 65%;
             width: 100%;
 
-           h3 {
-               color: white;
+            h3 {
+                color: white;
                 font-size: 20px;
                 text-align: center;
                 z-index: 10;
@@ -1877,85 +1981,91 @@ body::-webkit-scrollbar {
 
     }
 
-/* -------------------------------------------------------------------------- */
-/*                                project page                                */
-/* -------------------------------------------------------------------------- */
-.mySlides{
-    height: auto;
-    img{
-        position: static;
+    /* -------------------------------------------------------------------------- */
+    /*                                project page                                */
+    /* -------------------------------------------------------------------------- */
+    .mySlides {
         height: auto;
+
+        img {
+            position: static;
+            height: auto;
+        }
     }
-}
 
-.position-5{
-    left: -90px;
-}
-
-.text{
-    width: 100%;
-    height: auto;
-    font-family: "didonesque";
-    @include columnflex();
-    margin-top: 5%;
-    max-width: 1080px;
-
-    h3{
-        font-size: 20px;
-
+    .position-5 {
+        left: -90px;
     }
-    p{
 
-        font-size: 16px;
-        max-width: 80ch;
-    }
-}
-
-.next-project{
-    width: 80%;
-    max-width: 1080px;
-    margin-top: 30px;
-    margin-right: auto;
-    height: 20vh;
-    background-color: white;
-    @include columnflex();
-    a{
+    .text {
         width: 100%;
-        height: 100%;
-        position: relative;
-    }
-    h4{
-        width: 100%;
-        text-align: left;
-        color: $backcolor-main;
-        font-size: 22px;
+        height: auto;
         font-family: "didonesque";
-        line-height: 22px;
-        margin-left: 50%;
-        span{
-            width: 63%;
-            font-size: 14px;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 800;
+        @include columnflex();
+        margin-top: 5%;
+        max-width: 1080px;
+
+        h3 {
+            font-size: 20px;
+
+        }
+
+        p {
+
+            font-size: 16px;
+            max-width: 80ch;
+        }
+    }
+
+    .next-project {
+        width: 80%;
+        max-width: 1080px;
+        margin-top: 30px;
+        margin-right: auto;
+        height: 20vh;
+        background-color: white;
+        @include columnflex();
+
+        a {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        h4 {
+            width: 100%;
+            text-align: left;
             color: $backcolor-main;
+            font-size: 22px;
+            font-family: "didonesque";
+            line-height: 22px;
+            margin-left: 50%;
+
+            span {
+                width: 63%;
+                font-size: 14px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 800;
+                color: $backcolor-main;
+            }
+
         }
 
     }
 
-}
+    .container-next-project {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        bottom: 38px;
 
-.container-next-project{
-    width: 100%;
-    overflow:hidden;
-    position: relative;
-    bottom: 38px;
-    img{
-        width: auto;
-        margin-left: 50%;
-        height: 30vh;
+        img {
+            width: auto;
+            margin-left: 50%;
+            height: 30vh;
+        }
+
     }
-
-}
 
 
 }
@@ -2256,7 +2366,7 @@ body::-webkit-scrollbar {
 
         .container__info {
             position: absolute;
-            top: 70%;
+            top: 75%;
             margin-top: 20px;
         }
 
@@ -2313,5 +2423,97 @@ body::-webkit-scrollbar {
         }
 
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                                PROJECT PAGE                                */
+    /* -------------------------------------------------------------------------- */
+
+    .mySlides {
+        width: 100%;
+        @include centerflex();
+        position: static;
+        img {
+            position: static;
+            width: 100%;
+        }
+    }
+
+
+
+    .text {
+        width: 100%;
+        height: auto;
+        font-family: "didonesque";
+        @include columnflex();
+        margin-top: 10%;
+        max-width: 1080px;
+
+        h3 {
+            font-size: 28px;
+            line-height: 32px;
+        }
+
+        p {
+            font-size: 24px;
+            max-width: 100ch;
+        }
+    }
+
+    .next-project {
+        width: 57%;
+        max-width: 1080px;
+        margin-top: 60px;
+        margin-right: 0;
+        height: 50vh;
+        background-color: white;
+        @include columnflex();
+
+        a {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            color: $backcolor-main;
+        }
+
+        h4 {
+            width: 100%;
+            text-align: left;
+            color: $backcolor-main;
+            font-size: 22px;
+            font-family: "didonesque";
+            line-height: 22px;
+            margin-left: 20%;
+
+            span {
+                width: 63%;
+                font-size: 14px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 800;
+                color: $backcolor-main;
+            }
+
+        }
+
+    }
+
+    .row{
+        max-width: 1920px;
+    }
+
+    .container-next-project {
+        width: 100%;
+        max-width: 1920px;
+        overflow: hidden;
+        position: absolute;
+        bottom: -308px;
+        img {
+            width: 70%;
+            height: auto;
+            margin-left: 50%;
+
+        }
+
+    }
+
 
 }

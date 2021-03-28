@@ -154,6 +154,7 @@ html {
 body {
   width: 100%;
   height: 100%;
+  background-color: #101111;
 }
 
 body::-webkit-scrollbar {
@@ -164,6 +165,7 @@ body::-webkit-scrollbar {
   background-color: #101111;
   width: 100%;
   height: 100%;
+  margin: 0 auto;
   animation: pageTransition 1s cubic-bezier(0.61, 0.12, 0.07, 0.92) forwards;
 }
 
@@ -255,12 +257,24 @@ body::-webkit-scrollbar {
     align-items: center;
   }
   .page-transition .logo-transition {
-    width: 80%;
-    height: 30%;
-    background-color: #f9ca24;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    animation: logoTransition 0.2s linear forwards;
+    animation: logoTransition 1s linear forwards;
     display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .page-transition .logo-transition img {
+    width: 50%;
+  }
+  .page-transition .logo-transition p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
   }
 
   .page-transition-intro {
@@ -275,11 +289,22 @@ body::-webkit-scrollbar {
     align-items: center;
   }
   .page-transition-intro .logo-transition {
-    width: 80%;
-    height: 30%;
-    background-color: #f9ca24;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     opacity: 1;
-    display: block;
+    display: flex;
+  }
+  .page-transition-intro .logo-transition img {
+    width: 50%;
+  }
+  .page-transition-intro .logo-transition p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
   }
 
   @keyframes pageTransition {
@@ -309,6 +334,7 @@ body::-webkit-scrollbar {
   /* ----------------------------------- nav ---------------------------------- */
   .mainnav {
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -459,6 +485,9 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #backgroundvideo .sphere-animation svg {
+    max-width: 1120px;
   }
   #backgroundvideo .Layer_1 path {
     fill: url(#sphereGradient);
@@ -640,7 +669,6 @@ body::-webkit-scrollbar {
   }
   #firstclone .animation-wrapper {
     width: 100%;
-    position: absolute;
     z-index: 0;
   }
   #firstclone .sphere-animation {
@@ -1356,6 +1384,28 @@ body::-webkit-scrollbar {
 /*                                   tablet                                   */
 /* -------------------------------------------------------------------------- */
 @media screen and (min-width: 768px) {
+  /* ---------------------------- page transition: ---------------------------- */
+  .page-transition .logo-transition img {
+    width: 20%;
+  }
+  .page-transition .logo-transition p {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .page-transition-intro .logo-transition img {
+    width: 20%;
+  }
+  .page-transition-intro .logo-transition p {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
   /* ----------------------------------- nav ---------------------------------- */
   .mainnav .logo-fix {
     width: 90%;
@@ -1987,7 +2037,7 @@ body::-webkit-scrollbar {
   }
   #portfolio__main__mobile .container__info {
     position: absolute;
-    top: 70%;
+    top: 75%;
     margin-top: 20px;
   }
   #portfolio__main__mobile h3 {
@@ -2037,5 +2087,92 @@ body::-webkit-scrollbar {
     background-size: cover;
     filter: grayscale(100%);
     opacity: 0.4;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                PROJECT PAGE                                */
+  /* -------------------------------------------------------------------------- */
+  .mySlides {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+  }
+  .mySlides img {
+    position: static;
+    width: 100%;
+  }
+
+  .text {
+    width: 100%;
+    height: auto;
+    font-family: "didonesque";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+    max-width: 1080px;
+  }
+  .text h3 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .text p {
+    font-size: 24px;
+    max-width: 100ch;
+  }
+
+  .next-project {
+    width: 57%;
+    max-width: 1080px;
+    margin-top: 60px;
+    margin-right: 0;
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .next-project a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: #101111;
+  }
+  .next-project h4 {
+    width: 100%;
+    text-align: left;
+    color: #101111;
+    font-size: 22px;
+    font-family: "didonesque";
+    line-height: 22px;
+    margin-left: 20%;
+  }
+  .next-project h4 span {
+    width: 63%;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    color: #101111;
+  }
+
+  .row {
+    max-width: 1920px;
+  }
+
+  .container-next-project {
+    width: 100%;
+    max-width: 1920px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -308px;
+  }
+  .container-next-project img {
+    width: 70%;
+    height: auto;
+    margin-left: 50%;
   }
 }

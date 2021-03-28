@@ -120,7 +120,7 @@ function checkIndex(event){
   divTransition[0].style.display="flex";
   divTransition[0].addEventListener("animationend",function(){
     console.log("ok");
-    logoTransition[0].style.display="block";
+    logoTransition[0].style.display="flex";
     logoTransition[0].addEventListener("animationend",function(){
       let hrefPage=linkTranstion[indexLink].dataset.link;
 	    window.location.href= hrefPage ;
