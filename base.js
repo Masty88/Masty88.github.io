@@ -117,15 +117,18 @@ function linkTransitionListener(){
 function checkIndex(event){
   console.log("ok");
   var indexLink= Array.from(linkTranstion).indexOf(event.target) ;
-  divTransition[0].style.display="flex";
-  divTransition[0].addEventListener("animationend",function(){
-    console.log("ok");
-    logoTransition[0].style.display="flex";
-    logoTransition[0].addEventListener("animationend",function(){
-      let hrefPage=linkTranstion[indexLink].dataset.link;
-	    window.location.href= hrefPage ;
+  for(let i=0;i<divTransition.length;i++){
+    divTransition[i].style.display="flex";
+    divTransition[i].addEventListener("animationend",function(){
+      console.log("ok");
+      logoTransition[i].style.display="flex";
+      logoTransition[i].addEventListener("animationend",function(){
+        let hrefPage=linkTranstion[indexLink].dataset.link;
+        window.location.href= hrefPage ;
+    })
   })
-})}
+  }
+}
 
 window.onload=init();
 

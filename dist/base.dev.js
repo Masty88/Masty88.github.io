@@ -115,15 +115,22 @@ function linkTransitionListener() {
 function checkIndex(event) {
   console.log("ok");
   var indexLink = Array.from(linkTranstion).indexOf(event.target);
-  divTransition[0].style.display = "flex";
-  divTransition[0].addEventListener("animationend", function () {
-    console.log("ok");
-    logoTransition[0].style.display = "flex";
-    logoTransition[0].addEventListener("animationend", function () {
-      var hrefPage = linkTranstion[indexLink].dataset.link;
-      window.location.href = hrefPage;
+
+  var _loop = function _loop(i) {
+    divTransition[i].style.display = "flex";
+    divTransition[i].addEventListener("animationend", function () {
+      console.log("ok");
+      logoTransition[i].style.display = "flex";
+      logoTransition[i].addEventListener("animationend", function () {
+        var hrefPage = linkTranstion[indexLink].dataset.link;
+        window.location.href = hrefPage;
+      });
     });
-  });
+  };
+
+  for (var i = 0; i < divTransition.length; i++) {
+    _loop(i);
+  }
 }
 
 window.onload = init();
@@ -422,7 +429,7 @@ if (mainPortfolio) {
   if ((x.matches || y.matches) && deviceIsMobile === false) {
     //add listener to scroll
     var scrollBack = function scrollBack() {
-      var _loop = function _loop(i) {
+      var _loop2 = function _loop2(i) {
         frontproject[i].addEventListener("mouseover", translateXBack);
         frontproject[i].addEventListener("mouseout", removeTranslate);
 
@@ -438,7 +445,7 @@ if (mainPortfolio) {
 
       //give event to all project
       for (var i = 0; i < frontproject.length; i++) {
-        _loop(i);
+        _loop2(i);
       }
     };
 
