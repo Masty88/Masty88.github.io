@@ -188,8 +188,10 @@ body::-webkit-scrollbar {
     background-color: $backcolor-main;
     width: 100%;
     height: 100%;
+
      animation: pageTransition 1s cubic-bezier(.61,.12,.07,.92) forwards;
 }
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  animation                                 */
@@ -415,7 +417,7 @@ body::-webkit-scrollbar {
 
 
 
-                span {
+                #name {
                     color: white;
                     top: -10px;
                     margin-left: 20px;
@@ -423,13 +425,20 @@ body::-webkit-scrollbar {
                     font-family: "Open Sans", sans-serif;
                     font-size: 12px;
                 }
+                .line-nav{
+                    color: white;
+                    border: solid 1px;
+                    position: relative;
+                    top: -10px;
+                    margin-left: 5px;
+                }
             }
 
             .span-burger {
                 //width: 40px;
                 // height: 20px;
                 @include columnflex();
-
+                margin-right: 20px;
                 .burger {
                     top: -13px;
                     background: #8df4e9;
@@ -1027,13 +1036,29 @@ body::-webkit-scrollbar {
     @include centerflex();
     overflow: hidden;
     height: 90vh;
-    background-color: yellow;
+    position: relative;
     img{
         position: relative;
       //  width: 180%;
         height: 100%;
        // width: auto;
     }
+  }
+
+  .position-1{
+      left: -120px;;
+  }
+  .position-2{
+    left: 200px;
+  }
+  .position-3{
+    left: -50px;
+  }
+  .position-4{
+    left: 200px;
+  }
+  .position-5{
+    left: -20px;
   }
 
   /* Add a pointer when hovering over the thumbnail images */
@@ -1110,6 +1135,7 @@ body::-webkit-scrollbar {
   .column {
 
     width: 100%;
+    img{width: 100%;}
   }
 
   /* Add a transparency effect for thumnbail images */
@@ -1129,6 +1155,7 @@ body::-webkit-scrollbar {
     font-family: "didonesque";
     @include columnflex();
     margin-top: 10%;
+
     h3{
         width: 80%;
         font-size: 18px;
@@ -1159,6 +1186,11 @@ body::-webkit-scrollbar {
     height: 20vh;
     background-color: white;
     @include columnflex();
+    a{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
     h4{
         width: 100%;
         text-align: left;
@@ -1187,6 +1219,11 @@ body::-webkit-scrollbar {
     img{
         width: 100%;
         margin-left: 20%;
+    }
+    a{
+        width: 100%;
+        height: 100%;
+        position: absolute;
     }
 
 }
@@ -1404,6 +1441,71 @@ body::-webkit-scrollbar {
         right: 8%;
         @include columnflex();
     }
+
+/* -------------------------------------------------------------------------- */
+/*                                PROJECT PAGE                                */
+/* -------------------------------------------------------------------------- */
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    @include centerflex();
+    overflow: hidden;
+    height: auto;
+    position: static;
+    img{
+
+        width: 100%;
+        height: auto;
+       // width: auto;
+    }
+  }
+  //next and prev btn
+  .container-button{
+    width: 100%;
+    position: absolute;
+    top: 15%;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .text{
+
+        h3{
+            width: 80%;
+            font-size: 18px;
+            color: white;
+            text-align: left;
+            line-height: 22px;
+            margin-bottom: 20px;
+            span{
+                margin-right:100% ;
+                margin-bottom: 40px;
+                font-size: 12px;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 800;
+            }
+        }
+        p{
+            width: 80%;
+            text-align: left;
+            font-family: "Open Sans", sans-serif;
+            max-width: 52ch;
+        }
+    }
+
+    .container-next-project{
+        width: 100%;
+        overflow:hidden;
+        position: relative;
+        bottom: 8px;
+        img{
+            width: 50%;
+            margin-left: 40%;
+            height: auto;
+        }
+
+}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1438,10 +1540,14 @@ body::-webkit-scrollbar {
                     border-top: 3px solid white;
                 }
 
-                span {
+                #name {
                     top: -15px;
                     margin-left: 25px;
                     font-size: 20px;
+                }
+                .line-nav{
+                    top:-17px;
+                    height: 40px;
                 }
             }
 
@@ -1696,7 +1802,7 @@ body::-webkit-scrollbar {
             top: 65%;
             width: 100%;
 
-           h3 a{
+           h3 {
                color: white;
                 font-size: 20px;
                 text-align: center;
@@ -1770,6 +1876,87 @@ body::-webkit-scrollbar {
         }
 
     }
+
+/* -------------------------------------------------------------------------- */
+/*                                project page                                */
+/* -------------------------------------------------------------------------- */
+.mySlides{
+    height: auto;
+    img{
+        position: static;
+        height: auto;
+    }
+}
+
+.position-5{
+    left: -90px;
+}
+
+.text{
+    width: 100%;
+    height: auto;
+    font-family: "didonesque";
+    @include columnflex();
+    margin-top: 5%;
+    max-width: 1080px;
+
+    h3{
+        font-size: 20px;
+
+    }
+    p{
+
+        font-size: 16px;
+        max-width: 80ch;
+    }
+}
+
+.next-project{
+    width: 80%;
+    max-width: 1080px;
+    margin-top: 30px;
+    margin-right: auto;
+    height: 20vh;
+    background-color: white;
+    @include columnflex();
+    a{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    h4{
+        width: 100%;
+        text-align: left;
+        color: $backcolor-main;
+        font-size: 22px;
+        font-family: "didonesque";
+        line-height: 22px;
+        margin-left: 50%;
+        span{
+            width: 63%;
+            font-size: 14px;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 800;
+            color: $backcolor-main;
+        }
+
+    }
+
+}
+
+.container-next-project{
+    width: 100%;
+    overflow:hidden;
+    position: relative;
+    bottom: 38px;
+    img{
+        width: auto;
+        margin-left: 50%;
+        height: 30vh;
+    }
+
+}
+
 
 }
 

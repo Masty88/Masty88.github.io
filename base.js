@@ -16,9 +16,10 @@ var slideMenu = document.getElementsByClassName("burger-slide");
 //recover logo
 var logo = document.getElementById("Logo-img");
 var logoPath = logo.querySelectorAll('.line path');
-console.log(logoPath)
+var pathToFill=document.getElementById("path-tofill");
 // recover logo text
 var spanName=document.getElementById("name");
+var spanLine=document.getElementById("line-nav");
 
 // add action to span element
 burgerButton[0].addEventListener("click", burgerSlide, false);
@@ -46,6 +47,7 @@ function burgerSlideReturn() {
         span[2].style.cssText = "transform: rotate(0deg);background-color:white";
         span[1].style.cssText = "opacity:1;";
         spanName.style.cssText="color:white;";
+        spanLine.style.cssText="color:white;";
 
     },600);
 }
@@ -59,7 +61,10 @@ function changeColorLogo() {
     span[2].style.cssText = "transform: rotate(-45deg) translate(0px, -1px);background-color:#101111";
     span[1].style.cssText = "opacity:0;";
     spanName.style.cssText="color:black;";
-    spanName.style.setProperty('--after-border-top', localStorage.getItem("border-top"));
+
+    spanLine.style.cssText="color:black;";
+
+
 
 }
 
@@ -71,6 +76,7 @@ function changeColorLogoReverse() {
     for (var i = 0; i < span.length; i++) {
         span[i].style.cssText = "background-color: white;";
     }
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -573,17 +579,17 @@ var projectPage=document.getElementById("project__page")
 if(projectPage){
   var slideIndex = 1;
   showSlides(slideIndex);
-  
+
   // Next/previous controls
   function plusSlides(n) {
     showSlides(slideIndex += n);
   }
-  
+
   // Thumbnail image controls
   function currentSlide(n) {
     showSlides(slideIndex = n);
   }
-  
+
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
