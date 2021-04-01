@@ -15,13 +15,14 @@ var span = document.getElementsByClassName("burger"); //recover burger to slide
 var slideMenu = document.getElementsByClassName("burger-slide"); //recover logo
 
 var logo = document.getElementById("Logo-img");
-var logoPath = logo.querySelectorAll('.line path');
+var logoPath = logo.querySelectorAll(".line path");
 var pathToFill = document.getElementById("path-tofill"); // recover logo text
 
 var spanName = document.getElementById("name");
 var spanLine = document.getElementById("line-nav"); // add action to span element
 
 burgerButton[0].addEventListener("click", burgerSlide, false);
+/* -------------------------------- function -------------------------------- */
 
 function burgerSlide() {
   slideMenu[0].style.cssText = "animation: burger 1s cubic-bezier(1,-0.19,.15,1.19) forwards;";
@@ -93,33 +94,22 @@ var linkTranstion = document.getElementsByClassName("link-transition"); //burger
 var globalWrapper = document.getElementsByClassName("wrapper"); //intro transition
 
 var divTransitionIntro = document.getElementsByClassName("page-transition-intro");
-console.table(linkTranstion);
 linkTransitionListener();
+window.addEventListener("load", initTRans);
+/* -------------------------------- function -------------------------------- */
 
 function linkTransitionListener() {
   for (var i = 0; i < linkTranstion.length; i++) {
     linkTranstion[i].addEventListener("click", checkIndex);
   }
 }
-/*function goToPage(){
-  console.log("ok");
-  divTransition[0].style.display="flex";
-  divTransition[0].addEventListener("animationend",function(){
-    console.log("ok");
-    logoTransition[0].style.display="block";
-    logoTransition[0].addEventListener("animationend",function(){
-  })
-}*/
-
 
 function checkIndex(event) {
-  console.log("ok");
   var indexLink = Array.from(linkTranstion).indexOf(event.target);
 
   var _loop = function _loop(i) {
     divTransition[i].style.display = "flex";
     divTransition[i].addEventListener("animationend", function () {
-      console.log("ok");
       logoTransition[i].style.display = "flex";
       logoTransition[i].addEventListener("animationend", function () {
         var hrefPage = linkTranstion[indexLink].dataset.link;
@@ -133,9 +123,7 @@ function checkIndex(event) {
   }
 }
 
-window.onload = init();
-
-function init() {
+function initTRans() {
   globalWrapper[0].style.display = "block";
   globalWrapper[0].addEventListener("animationend", function () {
     divTransitionIntro[0].style.display = "none";
@@ -147,63 +135,77 @@ function init() {
 /*                               PAGE HOME                                    */
 
 /* -------------------------------------------------------------------------- */
+// recover the div for start this script
 
 
 var home = document.getElementById("wrapper_home");
 
 if (home) {
+  /* -------------------------------- function -------------------------------- */
   var slideShow = function slideShow() {
+    // If media query matches
     if (x.matches) {
-      var myScript = function myScript() {
+      var myScriptX = function myScriptX() {
+        // recover again to prevent bug on
         var windowSize = document.documentElement.clientWidth;
         console.log("ok");
         _carouselSlide.style.transform = "translateX(" + -windowSize + "px)";
         _counter = 1;
       };
 
-      // If media query matches
       //recover again for ios oterwhise don'twork
-      var _counter = 1;
+      var _counter = 1; //recover again to prevent bug on ios device
 
-      var _carouselSlide = document.querySelector(".carousel-slide");
+      var _carouselSlide = document.querySelector(".carousel-slide"); //recover again to prevent bug on ios device
 
-      var _carouselImages = document.getElementsByClassName("slide"); // button listener
-      // recover button prev
+
+      var _carouselImages = document.getElementsByClassName("slide"); // recover button prev
 
 
       var prevBtn = document.getElementsByClassName("prev"); //recover button netx
 
       var nextBtn = document.getElementsByClassName("next"); // know how much we have to slide
 
-      var windowSize = document.documentElement.clientWidth; // move one picture
+      var windowSize = document.documentElement.clientWidth; // move one picture because the picture are 100% width and counter is one
 
       _carouselSlide.style.transform = "translateX(" + -windowSize * _counter + "px)"; // button listener
 
       nextBtn[0].addEventListener("click", function () {
         if (_counter >= _carouselImages.length - 1) {
           return;
-        }
+        } // recover again the window size to prevent bug on ios
 
-        var windowSize = document.documentElement.clientWidth;
-        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        _counter++;
+
+        var windowSize = document.documentElement.clientWidth; // add a transition style
+
+        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)"; // counter plus one
+
+        _counter++; // translate x
+
         _carouselSlide.style.transform = "translateX(" + -windowSize * _counter + "px)";
-        console.log(_carouselImages[2].id);
       }); //add event to this button
 
       prevBtn[0].addEventListener("click", function () {
+        //if we have negative coununter
         if (_counter <= 0) {
+          //stop the function
           return;
-        }
+        } // recover again the window size to prevent bug on ios
 
-        var windowSize = document.documentElement.clientWidth;
-        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-        _counter--;
+
+        var windowSize = document.documentElement.clientWidth; //add transition style
+
+        _carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)"; //counter minus one
+
+        _counter--; //and translate the x
+
         _carouselSlide.style.transform = "translateX(" + -windowSize * _counter + "px)";
       }); // event end with listener when transition end reset the transition
 
       _carouselSlide.addEventListener("transitionend", function () {
+        // if the images at index counter so the laste one or the first one
         if (_carouselImages[_counter].id === "lastclone") {
+          // recover again the window size to prevent bug on ios
           var _windowSize = document.documentElement.clientWidth;
           console.log("ok"); //if we are at the of the image we want to remove the transition and jump back to the first image
 
@@ -212,9 +214,11 @@ if (home) {
           _counter = _carouselImages.length - 2; // and the we transform
 
           _carouselSlide.style.transform = "translateX(" + -_windowSize * _counter + "px)";
-        }
+        } // if we are at the beginning
+
 
         if (_carouselImages[_counter].id === "firstclone") {
+          // recover again the window size to prevent bug on ios
           var _windowSize2 = document.documentElement.clientWidth; //if we are at the of the image we want to remove the transition and jump back to the first image
 
           _carouselSlide.style.transition = "none"; // update the counter
@@ -223,11 +227,13 @@ if (home) {
 
           _carouselSlide.style.transform = "translateX(" + -_windowSize2 * _counter + "px)";
         }
-      });
+      }); // to prevent bad window size so the images will be at the wrong place
 
-      window.addEventListener("resize", myScript);
+
+      window.addEventListener("resize", myScriptX);
     } else {
-      var _myScript = function _myScript() {
+      /* --------------------------- function to resize --------------------------- */
+      var myScriptY = function myScriptY() {
         var windowSizeH = document.documentElement.clientHeight;
         console.log("ok");
         _carouselSlide2.style.transform = "translateY(" + -windowSizeH + "px)";
@@ -240,8 +246,7 @@ if (home) {
 
       var _carouselImages2 = document.getElementsByClassName("slide");
 
-      console.log("android"); // button listener
-      // recover button prev
+      console.log("android"); // recover button prev
 
       var prevBtn = document.getElementsByClassName("prev"); //recover button netx
 
@@ -249,7 +254,8 @@ if (home) {
 
       var windowSizeH = document.documentElement.clientHeight; // move one picture
 
-      _carouselSlide2.style.transform = "translateY(" + -windowSizeH * _counter2 + "px)"; // button listener
+      _carouselSlide2.style.transform = "translateY(" + -windowSizeH * _counter2 + "px)";
+      /* -------------------------------- listener -------------------------------- */
 
       nextBtn[0].addEventListener("click", function () {
         if (_counter2 >= _carouselImages2.length - 1) {
@@ -296,7 +302,7 @@ if (home) {
         }
       });
 
-      window.addEventListener("resize", _myScript);
+      window.addEventListener("resize", myScriptY);
     }
     /* -------------------------------------------------------------------------- */
 
@@ -327,8 +333,8 @@ if (home) {
     }
 
     var sphereAnimation = function () {
-      var sphereEl = document.querySelector('.sphere-animation');
-      var spherePathEls = sphereEl.querySelectorAll('.Layer_1 path');
+      var sphereEl = document.querySelector(".sphere-animation");
+      var spherePathEls = sphereEl.querySelectorAll(".Layer_1 path");
       var pathLength = spherePathEls.length;
       var hasStarted = false;
       var aimations = [];
@@ -339,19 +345,19 @@ if (home) {
             aimations.push(anime({
               targets: spherePathEls[i],
               stroke: {
-                value: ['rgba(255,255,255,1)', 'rgba(80,80,80,.5)'],
+                value: ["rgba(255,255,255,1)", "rgba(80,80,80,.5)"],
                 duration: 1000
               },
               translateX: [8, -16],
               translateY: [4, -8],
-              easing: 'easeOutQuad',
+              easing: "easeOutQuad",
               autoplay: false
             }));
           }
         },
         update: function update(ins) {
           aimations.forEach(function (animation, i) {
-            var percent = (1 - Math.sin(i * .35 + .0022 * ins.currentTime)) / 2;
+            var percent = (1 - Math.sin(i * 0.35 + 0.0022 * ins.currentTime)) / 2;
             animation.seek(animation.duration * percent);
           });
         },
@@ -359,13 +365,13 @@ if (home) {
         autoplay: false
       });
       var shadowAnimation = anime({
-        targets: '#sphereGradient',
-        x1: '25%',
-        x2: '25%',
-        y1: '0%',
-        y2: '75%',
+        targets: "#sphereGradient",
+        x1: "25%",
+        x2: "25%",
+        y1: "0%",
+        y2: "75%",
         duration: 20000,
-        easing: 'easeOutQuint',
+        easing: "easeOutQuint",
         autoplay: false
       }, 0);
 
@@ -378,28 +384,32 @@ if (home) {
     }();
   };
 
-  ///recover carousel container
-  var carouselSlide = document.querySelector(".carousel-slide");
-  var carouselImages = document.getElementsByClassName("slide"); // find the chent X and Y
+  /* ----------------------------- recover the var ---------------------------- */
+  //recover carousel container
+  var carouselSlide = document.querySelector(".carousel-slide"); // recover images
 
-  var windowCenterX = document.documentElement.clientWidth / 2;
-  var windowCenterY = document.documentElement.clientHeight / 2;
-  console.log("window center" + windowCenterX);
-  console.log("window center" + windowCenterY); // counter
+  var carouselImages = document.getElementsByClassName("slide"); // counter
 
-  var counter = 1;
-  var x = window.matchMedia("(min-width: 1024px)");
-  var windowSize = document.documentElement.clientWidth;
+  var counter = 1; //js media query desktop and tablet
+
+  var x = window.matchMedia("(min-width: 1024px)"); // recover the window size
+
+  var windowSize = document.documentElement.clientWidth; // add listener because of different translate in different screen, prevent bug when screen switch fro portrait
+  //to landscape
+
   window.addEventListener("resize", function () {
+    //resize if windwo size is smaller tha 1024
     if (windowSize <= 1024) {
+      //reload to homepage
       location.href = "index.html";
       return false;
     } else {
-      console.log("mediaresi2");
+      //reload the home page
       location.href = "index.html";
       return false;
     }
-  });
+  }); //call the slideshow function
+
   slideShow();
 }
 /* -------------------------------------------------------------------------- */
@@ -427,15 +437,15 @@ if (mainPortfolio) {
   }
 
   if ((x.matches || y.matches) && deviceIsMobile === false) {
-    //add listener to scroll
+    /* -------------------------------- function -------------------------------- */
     var scrollBack = function scrollBack() {
       var _loop2 = function _loop2(i) {
         frontproject[i].addEventListener("mouseover", translateXBack);
         frontproject[i].addEventListener("mouseout", removeTranslate);
 
         function translateXBack() {
-          backPortfolio.style.transform = "translateX(" + -i * 15 + "%)";
-          backPortfolio.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+          backPortfolio.style.transform = "translateX(" + -i * 10 + "%)";
+          backPortfolio.style.transition = "transform 0.5s cubic-bezier(1,-0.19,.15,1.19)";
         }
 
         function removeTranslate() {
@@ -458,13 +468,13 @@ if (mainPortfolio) {
       var supported = false;
 
       try {
-        var opts = Object.defineProperty({}, 'passive', {
+        var opts = Object.defineProperty({}, "passive", {
           get: function get() {
             supported = true;
           }
         });
-        window.addEventListener('test', null, opts);
-        window.removeEventListener('test', null, opts);
+        window.addEventListener("test", null, opts);
+        window.removeEventListener("test", null, opts);
       } catch (e) {}
 
       return supported;
@@ -474,7 +484,7 @@ if (mainPortfolio) {
       passive: false,
       capture: false
     };
-    var supportedPassiveTypes = ['scroll', 'wheel', 'touchstart', 'touchmove', 'touchenter', 'touchend', 'touchleave', 'mouseout', 'mouseleave', 'mouseup', 'mousedown', 'mousemove', 'mouseenter', 'mousewheel', 'mouseover'];
+    var supportedPassiveTypes = ["scroll", "wheel", "touchstart", "touchmove", "touchenter", "touchend", "touchleave", "mouseout", "mouseleave", "mouseup", "mousedown", "mousemove", "mouseenter", "mousewheel", "mouseover"];
 
     var getDefaultPassiveOption = function getDefaultPassiveOption(passive, eventName) {
       if (passive !== undefined) return passive;
@@ -482,13 +492,13 @@ if (mainPortfolio) {
     };
 
     var getWritableOptions = function getWritableOptions(options) {
-      var passiveDescriptor = Object.getOwnPropertyDescriptor(options, 'passive');
+      var passiveDescriptor = Object.getOwnPropertyDescriptor(options, "passive");
       return passiveDescriptor && passiveDescriptor.writable !== true && passiveDescriptor.set === undefined ? Object.assign({}, options) : options;
     };
 
     var overwriteAddEvent = function overwriteAddEvent(superMethod) {
       EventTarget.prototype.addEventListener = function (type, listener, options) {
-        var usesListenerOptions = _typeof(options) === 'object' && options !== null;
+        var usesListenerOptions = _typeof(options) === "object" && options !== null;
         var useCapture = usesListenerOptions ? options.capture : options;
         options = usesListenerOptions ? getWritableOptions(options) : {};
         options.passive = getDefaultPassiveOption(options.passive, type);
@@ -514,10 +524,10 @@ if (mainPortfolio) {
     var backPortfolio = document.getElementById("back__portfolio"); //recover the project in fron porfolio
 
     var frontproject = document.getElementsByClassName("project");
-    console.table(frontproject);
-    scrollBack();
-    divToscroll.addEventListener('wheel', function (e) {
-      if (e.type != 'wheel') {
+    scrollBack(); //add listener to scroll
+
+    divToscroll.addEventListener("wheel", function (e) {
+      if (e.type != "wheel") {
         return;
       }
 
@@ -529,9 +539,9 @@ if (mainPortfolio) {
       document.body.scrollLeft -= delta;
       e.preventDefault();
     });
-  } // If media query matches
+  } // If media query matches and device is mobile
   else if (y.matches || x.matches && deviceIsMobile === true) {
-      console.log(deviceIsMobile);
+      // portfolio y hidde
       mainPortfolio.style.cssText = "overflow-y: hidden;";
       var windowSize = document.documentElement.clientWidth;
       window.addEventListener("resize", function () {
@@ -539,7 +549,6 @@ if (mainPortfolio) {
           location.href = "porfolio.html";
           return false;
         } else {
-          console.log("mediaresi2");
           location.href = "porfolio.html";
           return false;
         }

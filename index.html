@@ -13,6 +13,9 @@
 </head>
 
 <body>
+
+<!-- --------------------------- page transition --------------------------- -->
+
   <div class="page-transition" id="page-transition">
     <div class="logo-transition">
       <img src="img/logo_EM-01.png" alt="logo">
@@ -26,7 +29,11 @@
     </div>
   </div>
   <div class="wrapper" id="wrapper_home">
+
+<!-- --------------------------------- nav --------------------------------- -->
+
     <nav class="mainnav">
+
       <ul class="logo-fix">
         <li id="logo">
           <svg id="Logo-img" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -253,9 +260,10 @@
     <!-- -------------------------------- main --------------------------------- -->
     <section class="carousel-container">
       <div class="carousel-slide">
+        <!-- --last clone-- -->
         <div class="slide" id="lastclone">
-
         </div>
+        <!-- --svg animated-- -->
         <div id="backgroundvideo" class="slide" data-color="black">
 
           <div class="background-div"></div>
@@ -461,11 +469,12 @@
           <h2>WEB &nbsp; GRAPHISME &nbsp; PHOTOGRAPHIE</h2>
         </div>
         <div class="wrapper-cta">
-          <p>PORTFOLIO
+          <p><a class="portfolio link-transition" href="#" data-link="porfolio.html">PORTFOLIO</a>
           </p>
         </div>
 
         </div>
+        <!-- --slide 2-- -->
         <div class="slide" id="slide2" data-color="red">
 
           <div class="wrapper-title">
@@ -473,17 +482,28 @@
             <h3> PHOTOGRAPHIE</h3>
           </div>
           <div class="wrapper-cta">
-            <p>PORTFOLIO
-            </p>
+            <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
+            </a> </p>
           </div>
           <img src="img/dream_project.jpg" alt="dream photo">
 
         </div>
+        <!-- --slide 3-- -->
         <div class="slide" id="slide3" data-color="red">
+          <div class="wrapper-title">
+            <h2>La force<br> des lignes </h2>
+            <h3> GRAPHISME</h3>
+          </div>
+          <div class="wrapper-cta">
+            <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
+            </a> </p>
+          </div>
+          <img src="img/line-01.png" alt="line graphic elephant">
         </div>
+        <!-- --slide 4-- -->
         <div class="slide" id="slide4" data-color="red">
         </div>
-
+        <!-- --first clone-- -->
         <div class="slide" id="firstclone">
           <div class="animation-wrapper">
             <div class="sphere-animation">
@@ -687,23 +707,22 @@
           <h2>WEB &nbsp; GRAPHISME &nbsp; PHOTOGRAPHIE</h2>
         </div>
         <div class="wrapper-cta">
-          <p>PORTFOLIO
+          <p><a class="portfolio link-transition" href="#" data-link="porfolio.html">PORTFOLIO</a>
           </p>
         </div>
         </div>
       </section>
     </div>
+
+<!-- ------------------------------- button -------------------------------- -->
+
     <div class="wrapper-btn" id="home_btn">
+      <!-- --next-- -->
       <div class="wrapper-next">
-        <svg viewBox="0 0 102 102" class="next-crc">
-          <circle cx="51" cy="51" r="50" fill="none" stroke="white">
-        </svg>
         <a class="next">❯</a>
       </div>
+       <!-- --prev-- -->
       <div class="wrapper-prev">
-        <svg viewBox="0 0 102 102" class="prev-crc">
-          <circle cx="51" cy="51" r="50" fill="none" stroke="white">
-        </svg>
         <a class="prev">❮</a>
       </div>
 
@@ -714,7 +733,6 @@
 
 
   <script src="anime.min.js"></script>
-  <script src="smoke.js"></script>
   <script src="base.js"></script>
 </body>
 
