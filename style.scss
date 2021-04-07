@@ -1639,7 +1639,7 @@ footer{
 
     #backgroundvideo {
 
-        .sphere-animation {
+        .sphere-animation{
             width: 50%;
             margin-top: 30px;
         }
@@ -1885,7 +1885,7 @@ footer{
     /* -------------------------------- slideshow ------------------------------- */
 
     #backgroundvideo,#firstclone {
-        .sphere-animation {
+        .sphere-animation, .sphere-animation2 {
             width: 80%;
         }
 
@@ -1965,6 +1965,18 @@ footer{
     .wrapper-btn {
         top: 90%;
     }
+
+    .ml11, .ml12,.ml13,.ml14,.ml15,.ml16 {
+        color: white;
+        font-family: "didonesque";
+        font-size: 22px;
+        box-sizing: border-box;
+    }
+
+    .ml11 .letter,.ml12 .letter, .ml13 .letter, .ml14 .letter, .ml15 .letter, .ml16 .letter {
+        display: inline-block;
+        line-height: 75px;
+      }
 
     /* -------------------------------------------------------------------------- */
     /*                                 portfolio                                 */
@@ -2421,7 +2433,7 @@ footer{
 
     //slide 1//
     #backgroundvideo,#firstclone {
-        .sphere-animation {
+        .sphere-animation, .sphere-animation2 {
             width: 7%;
             opacity: 0.5;
         }
@@ -2595,6 +2607,17 @@ footer{
         }
     }
 
+    .ml11, .ml12,.ml13,.ml14,.ml15,.ml16 {
+        color: white;
+        font-family: "didonesque";
+        font-size: 65px;
+        box-sizing: border-box;
+    }
+
+    .ml11 .letter,.ml12 .letter, .ml13 .letter, .ml14 .letter, .ml15 .letter, .ml16 .letter {
+        display: inline-block;
+        line-height: 85px;
+      }
 
 
     .wrapper-btn {

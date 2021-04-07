@@ -1698,7 +1698,7 @@ body::-webkit-scrollbar {
   }
 
   /* -------------------------------- slideshow ------------------------------- */
-  #backgroundvideo .sphere-animation, #firstclone .sphere-animation {
+  #backgroundvideo .sphere-animation, #backgroundvideo .sphere-animation2, #firstclone .sphere-animation, #firstclone .sphere-animation2 {
     width: 80%;
   }
   #backgroundvideo .wrapper-title, #firstclone .wrapper-title {
@@ -1759,6 +1759,18 @@ body::-webkit-scrollbar {
 
   .wrapper-btn {
     top: 90%;
+  }
+
+  .ml11, .ml12, .ml13, .ml14, .ml15, .ml16 {
+    color: white;
+    font-family: "didonesque";
+    font-size: 22px;
+    box-sizing: border-box;
+  }
+
+  .ml11 .letter, .ml12 .letter, .ml13 .letter, .ml14 .letter, .ml15 .letter, .ml16 .letter {
+    display: inline-block;
+    line-height: 75px;
   }
 
   /* -------------------------------------------------------------------------- */
@@ -2135,7 +2147,7 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
-  #backgroundvideo .sphere-animation, #firstclone .sphere-animation {
+  #backgroundvideo .sphere-animation, #backgroundvideo .sphere-animation2, #firstclone .sphere-animation, #firstclone .sphere-animation2 {
     width: 7%;
     opacity: 0.5;
   }
@@ -2271,6 +2283,18 @@ body::-webkit-scrollbar {
     border-top: 3px solid white;
     width: 80px;
     margin-top: 10px;
+  }
+
+  .ml11, .ml12, .ml13, .ml14, .ml15, .ml16 {
+    color: white;
+    font-family: "didonesque";
+    font-size: 65px;
+    box-sizing: border-box;
+  }
+
+  .ml11 .letter, .ml12 .letter, .ml13 .letter, .ml14 .letter, .ml15 .letter, .ml16 .letter {
+    display: inline-block;
+    line-height: 85px;
   }
 
   .wrapper-btn {

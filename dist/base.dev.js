@@ -106,7 +106,7 @@ var globalWrapper = document.getElementsByClassName("wrapper"); //intro transiti
 
 var divTransitionIntro = document.getElementsByClassName("page-transition-intro");
 linkTransitionListener();
-window.addEventListener("load", initTRans);
+window.onload = initTRans();
 /* -------------------------------- function -------------------------------- */
 
 function linkTransitionListener() {
@@ -174,13 +174,13 @@ if (home) {
       loop: false
     }).add({
       targets: index,
-      translateX: [400, 0],
+      translateX: [800, 0],
       translateZ: 0,
       opacity: [0, 1],
       easing: "easeOutExpo",
       duration: 1200,
       delay: function delay(el, i) {
-        return 300 + 30 * i;
+        return 500 + 30 * i;
       }
     });
   }; //call the slideshow function
@@ -199,23 +199,38 @@ if (home) {
       };
 
       // know how much we have to slide
-      var windowSize = document.documentElement.clientWidth;
+      var windowSize = document.documentElement.clientWidth; // move one picture
+
+      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
+      carouselTranslate(document.documentElement.clientWidth, "translateX("); // move one picture because the picture are 100% width and counter is one
+
+      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
       anime.timeline({
         loop: false
       }).add({
         targets: '.ml12 .letter',
-        translateX: [400, 0],
+        translateX: [800, 0],
         translateZ: 0,
         opacity: [0, 1],
-        easing: "Quart",
+        easing: "easeOutExpo",
         duration: 1200,
         delay: function delay(el, i) {
-          return 300 + 30 * i;
+          return 500 + 30 * i;
         }
       });
-      carouselTranslate(document.documentElement.clientWidth, "translateX("); // move one picture because the picture are 100% width and counter is one
-
-      carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)"; // to prevent bad window size so the images will be at the wrong place
+      anime.timeline({
+        loop: false
+      }).add({
+        targets: '.ml16 .letter',
+        translateX: [800, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1200,
+        delay: function delay(el, i) {
+          return 500 + 30 * i;
+        }
+      }); // to prevent bad window size so the images will be at the wrong place
 
       window.addEventListener("resize", myScriptX);
     } else {
@@ -402,12 +417,28 @@ if (home) {
 
       carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)"; // counter plus one
 
-      counter++; // translate x
+      counter++;
+      console.log(counter + 1); // translate x
 
       carouselSlide.style.transform = translate + -windowSize * counter + "px)";
 
       if (x.matches) {
         animateTextX('.ml1' + (counter + 1) + ' .letter');
+        animateTextX('.ml1' + (counter + 1) + ' .letter');
+
+        if (counter + 1 === 5) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          animateTextX('.ml11  .letter');
+        } else if (counter + 1 === 1) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          animateTextX('.ml15  .letter');
+        } else if (counter + 1 === 2) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          animateTextX('.ml16  .letter');
+        } else if (counter + 1 === 6) {
+          animateTextX('.ml12' + (counter + 1) + ' .letter');
+          textWrapper.style.cssText = "visibility:hidden;";
+        }
       } else {
         animateTextY('.ml1' + (counter + 1) + ' .letter');
       }
@@ -429,10 +460,22 @@ if (home) {
 
       counter--; //and translate the x
 
-      carouselSlide.style.transform = translate + -windowSize * counter + "px)"; //animate text
+      carouselSlide.style.transform = translate + -windowSize * counter + "px)";
+      console.log(counter + 1); //animate text
 
       if (x.matches) {
         animateTextX('.ml1' + (counter + 1) + ' .letter');
+
+        if (counter + 1 === 5) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          animateTextX('.ml11  .letter');
+        } else if (counter + 1 === 2) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          animateTextX('.ml16  .letter');
+        } else if (counter + 1 === 1) {
+          animateTextX('.ml1' + (counter + 1) + ' .letter');
+          textWrapper4.style.cssText = "visibility:hidden;";
+        }
       } else {
         animateTextY('.ml1' + (counter + 1) + ' .letter');
       }
@@ -453,9 +496,7 @@ if (home) {
 
         carouselSlide.style.transform = translate + -_windowSize * counter + "px)";
 
-        if (x.matches) {
-          animateTextX('.ml1' + counter + ' .letter');
-        } else {
+        if (x.matches) {} else {
           animateTextY('.ml1' + counter + ' .letter');
         }
       } // if we are at the beginning
@@ -471,9 +512,7 @@ if (home) {
 
         carouselSlide.style.transform = translate + -_windowSize2 * counter + "px)";
 
-        if (x.matches) {
-          animateTextX('.ml1' + counter + ' .letter');
-        } else {
+        if (x.matches) {} else {
           animateTextY('.ml1' + counter + ' .letter');
         }
       }

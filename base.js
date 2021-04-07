@@ -103,7 +103,7 @@ var divTransitionIntro = document.getElementsByClassName("page-transition-intro"
 
 linkTransitionListener();
 
-window.addEventListener("load", initTRans);
+window.onload=initTRans();
 
 
 /* -------------------------------- function -------------------------------- */
@@ -194,17 +194,7 @@ if (home) {
         }
     });
 
-
-
-
-
     //textWrapper.innerHTML = textWrapper.textContent.replace(/\S{8,}\s+\S{12}s+\S{9}/, "<span class='letter'>$&<br>");
-
-
-
-
-
-
     function animateTextY(index){
         anime.timeline({
             loop: false
@@ -225,15 +215,14 @@ if (home) {
         })
         .add({
             targets:  index ,
-            translateX: [400, 0],
+            translateX: [800, 0],
             translateZ: 0,
             opacity: [0, 1],
             easing: "easeOutExpo",
             duration: 1200,
-            delay: (el, i) => 300 + 30 * i
+            delay: (el, i) => 500 + 30 * i
         })
     }
-
 
     //call the slideshow function
     slideShow();
@@ -246,26 +235,39 @@ if (home) {
 
             // know how much we have to slide
             var windowSize = document.documentElement.clientWidth;
-
-            anime.timeline({
-                loop: false
-            })
-            .add({
-                targets: '.ml12 .letter',
-                translateX: [400, 0],
-                translateZ: 0,
-                opacity: [0, 1],
-                easing: "Quart",
-                duration: 1200,
-                delay: (el, i) => 300 + 30 * i
-            })
+            // move one picture
+            carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
 
             carouselTranslate(document.documentElement.clientWidth, "translateX(")
 
             // move one picture because the picture are 100% width and counter is one
             carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
 
+            anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [800, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 500 + 30 * i
+            })
 
+            anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: '.ml16 .letter',
+                translateX: [800, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 500 + 30 * i
+            })
 
 
             // to prevent bad window size so the images will be at the wrong place
@@ -454,6 +456,7 @@ if (home) {
             init();
         })();
     }
+
     //size--> client width or height -->document.documentElement.clientWidth
     // translate--->"translateX(" or "translateY("
     function carouselTranslate(size,translate){
@@ -479,10 +482,25 @@ if (home) {
                     carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
                     // counter plus one
                     counter++;
+                    console.log(counter +1);
                     // translate x
                     carouselSlide.style.transform = translate + -windowSize * counter + "px)";
                     if (x.matches){
                         animateTextX('.ml1' +( counter +1) + ' .letter');
+                        animateTextX('.ml1' +( counter +1) + ' .letter');
+                        if(counter+1===5  ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            animateTextX('.ml11  .letter');
+                        } else if(counter+1===1 ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            animateTextX('.ml15  .letter');
+                        } else if(counter+1===2 ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            animateTextX('.ml16  .letter');
+                        }else if(counter+1===6 ){
+                            animateTextX('.ml12' +( counter +1) + ' .letter');
+                            textWrapper.style.cssText="visibility:hidden;";
+                        }
                     }else{
                         animateTextY('.ml1' +( counter +1) + ' .letter');
                     }
@@ -505,9 +523,21 @@ if (home) {
                     counter--;
                     //and translate the x
                     carouselSlide.style.transform = translate + -windowSize * counter + "px)";
+                    console.log(counter +1);
                     //animate text
                     if (x.matches){
                         animateTextX('.ml1' +( counter +1) + ' .letter');
+                        if(counter+1===5  ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            animateTextX('.ml11  .letter');
+                        }
+                         else if(counter+1===2 ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            animateTextX('.ml16  .letter');
+                        }else if(counter+1===1 ){
+                            animateTextX('.ml1' +( counter +1) + ' .letter');
+                            textWrapper4.style.cssText="visibility:hidden;";
+                        }
                     }else{
                         animateTextY('.ml1' +( counter +1) + ' .letter');
                     }
@@ -528,7 +558,7 @@ if (home) {
                         // and the we transform
                         carouselSlide.style.transform = translate + -windowSize * counter + "px)";
                         if (x.matches){
-                            animateTextX('.ml1' +( counter ) + ' .letter');
+
                         }else{
                             animateTextY('.ml1' +( counter ) + ' .letter');
                         }
@@ -544,9 +574,9 @@ if (home) {
                         // and the we transform to go back to first one
                         carouselSlide.style.transform =translate + -windowSize * counter + "px)";
                         if (x.matches){
-                            animateTextX('.ml1' +( counter ) + ' .letter');
+
                         }else{
-                            animateTextY('.ml1' +( counter ) + ' .letter');
+                            animateTextY('.ml1' +( counter  ) + ' .letter');
                         }
                     }
                 });
