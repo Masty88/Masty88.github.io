@@ -61,7 +61,6 @@ function changeColorLogo() {
     span[2].style.cssText = "transform: rotate(-45deg) translate(0px, -1px);background-color:#101111";
     span[1].style.cssText = "opacity:0;";
     spanName.style.cssText = "color:black;";
-
     spanLine.style.cssText = "color:black;";
 }
 
@@ -74,6 +73,17 @@ function changeColorLogoReverse() {
         span[i].style.cssText = "background-color: white;";
     }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                NAV ON SCROLL                               */
+/* -------------------------------------------------------------------------- */
+var mainNav = document.getElementsByClassName("mainnav");
+
+//listern on scrool
+window.addEventListener("scroll", function () {
+    mainNav[0].style.cssText = "background-color:#101111;";
+
+})
 
 /* -------------------------------------------------------------------------- */
 /*                               PAGE TRANSITION                              */
@@ -93,7 +103,8 @@ var divTransitionIntro = document.getElementsByClassName("page-transition-intro"
 
 linkTransitionListener();
 
-window.addEventListener ("load", initTRans);
+window.addEventListener("load", initTRans);
+
 
 /* -------------------------------- function -------------------------------- */
 
@@ -133,7 +144,7 @@ function initTRans() {
 var home = document.getElementById("wrapper_home");
 if (home) {
 
-/* ----------------------------- recover the var ---------------------------- */
+ /* ----------------------------- recover the var ---------------------------- */
 
     //recover carousel container
     var carouselSlide = document.querySelector(".carousel-slide");
@@ -141,10 +152,32 @@ if (home) {
     var carouselImages = document.getElementsByClassName("slide");
     // counter
     let counter = 1;
+
+/* ------------------------------- media query ------------------------------ */
+
     //js media query desktop and tablet
     var x = window.matchMedia("(min-width: 1024px)");
     // recover the window size
     var windowSize = document.documentElement.clientWidth;
+
+/* ----------------------------- text animation ----------------------------- */
+
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml12');
+    var textWrapper2 = document.querySelector('.ml13');
+    var textWrapper3 = document.querySelector('.ml14');
+    var textWrapper4 = document.querySelector('.ml15');
+    var textWrapper5 = document.querySelector('.ml16');
+    var textWrapper6 = document.querySelector('.ml11');
+    //regex to replace
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S{8,}/g, "<span class='letter'>$&<br>");
+    textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S{2}\s\S{7}/, "<span class='letter'>$&<br>");
+    textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S{2}\s\S{5}/, "<span class='letter'>$&<br>");
+    textWrapper4.innerHTML = textWrapper4.textContent.replace(/\S{2}\s\S{6}/g, "<span class='letter'>$&<br>");
+    textWrapper5.innerHTML = textWrapper5.textContent.replace(/\S{8,}/g, "<span class='letter'>$&<br>");
+    textWrapper6.innerHTML = textWrapper6.textContent.replace(/\S{2}\s\S{6}/g, "<span class='letter'>$&<br>");
+
+/* -------------------- listener to resize to prevent bug ------------------- */
 
     // add listener because of different translate in different screen, prevent bug when screen switch fro portrait
     //to landscape
@@ -161,6 +194,47 @@ if (home) {
         }
     });
 
+
+
+
+
+    //textWrapper.innerHTML = textWrapper.textContent.replace(/\S{8,}\s+\S{12}s+\S{9}/, "<span class='letter'>$&<br>");
+
+
+
+
+
+
+    function animateTextY(index){
+        anime.timeline({
+            loop: false
+        })
+        .add({
+            targets:  index ,
+            translateY: [400, 0],
+            translateZ: 0,
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 1200,
+            delay: (el, i) => 300 + 30 * i
+        })
+    }
+    function animateTextX(index){
+        anime.timeline({
+            loop: false
+        })
+        .add({
+            targets:  index ,
+            translateX: [400, 0],
+            translateZ: 0,
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 1200,
+            delay: (el, i) => 300 + 30 * i
+        })
+    }
+
+
     //call the slideshow function
     slideShow();
 
@@ -169,82 +243,31 @@ if (home) {
     function slideShow() {
         // If media query matches
         if (x.matches) {
-            //recover again for ios oterwhise don'twork
-            let counter = 1;
-            //recover again to prevent bug on ios device
-            let carouselSlide = document.querySelector(".carousel-slide");
-            //recover again to prevent bug on ios device
-            let carouselImages = document.getElementsByClassName("slide");
-
-            // recover button prev
-            var prevBtn = document.getElementsByClassName("prev");
-            //recover button netx
-            var nextBtn = document.getElementsByClassName("next");
 
             // know how much we have to slide
             var windowSize = document.documentElement.clientWidth;
 
+            anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [400, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "Quart",
+                duration: 1200,
+                delay: (el, i) => 300 + 30 * i
+            })
+
+            carouselTranslate(document.documentElement.clientWidth, "translateX(")
+
             // move one picture because the picture are 100% width and counter is one
             carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
 
-            // button listener
-            nextBtn[0].addEventListener("click", () => {
-                if (counter >= carouselImages.length - 1) {
-                    return;
-                }
-                // recover again the window size to prevent bug on ios
-                let windowSize = document.documentElement.clientWidth;
-                // add a transition style
-                carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-                // counter plus one
-                counter++;
-                // translate x
-                carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-            });
 
-            //add event to this button
-            prevBtn[0].addEventListener("click", function () {
-                //if we have negative coununter
-                if (counter <= 0) {
-                    //stop the function
-                    return;
-                }
-                // recover again the window size to prevent bug on ios
-                let windowSize = document.documentElement.clientWidth;
-                //add transition style
-                carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-                //counter minus one
-                counter--;
-                //and translate the x
-                carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-            });
 
-            // event end with listener when transition end reset the transition
-            carouselSlide.addEventListener("transitionend", () => {
-                // if the images at index counter so the laste one or the first one
-                if (carouselImages[counter].id === "lastclone") {
-                    // recover again the window size to prevent bug on ios
-                    let windowSize = document.documentElement.clientWidth;
-                    console.log("ok");
-                    //if we are at the of the image we want to remove the transition and jump back to the first image
-                    carouselSlide.style.transition = "none";
-                    // update the counter
-                    counter = carouselImages.length - 2;
-                    // and the we transform
-                    carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-                }
-                // if we are at the beginning
-                if (carouselImages[counter].id === "firstclone") {
-                    // recover again the window size to prevent bug on ios
-                    let windowSize = document.documentElement.clientWidth;
-                    //if we are at the of the image we want to remove the transition and jump back to the first image
-                    carouselSlide.style.transition = "none";
-                    // update the counter
-                    counter = carouselImages.length - counter;
-                    // and the we transform to go back to first one
-                    carouselSlide.style.transform = "translateX(" + -windowSize * counter + "px)";
-                }
-            });
+
             // to prevent bad window size so the images will be at the wrong place
             window.addEventListener("resize", myScriptX);
 
@@ -256,67 +279,25 @@ if (home) {
                 counter = 1;
             }
         } else {
-            let counter = 1;
-            let carouselSlide = document.querySelector(".carousel-slide");
-            let carouselImages = document.getElementsByClassName("slide");
-            console.log("android");
-
-            // recover button prev
-            var prevBtn = document.getElementsByClassName("prev");
-            //recover button netx
-            var nextBtn = document.getElementsByClassName("next");
-            // know how much we have to slide
 
             var windowSizeH = document.documentElement.clientHeight;
 
             // move one picture
             carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
 
-            /* -------------------------------- listener -------------------------------- */
-
-            nextBtn[0].addEventListener("click", () => {
-                if (counter >= carouselImages.length - 1) {
-                    return;
-                }
-                let windowSizeH = document.documentElement.clientHeight;
-                carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-                counter++;
-                carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-            });
-
-            //add event to this button
-            prevBtn[0].addEventListener("click", function () {
-                if (counter <= 0) {
-                    return;
-                }
-                let windowSizeH = document.documentElement.clientHeight;
-                carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
-                counter--;
-                carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-            });
-
-            // event end with listener when transition end reset the transition
-            carouselSlide.addEventListener("transitionend", () => {
-                if (carouselImages[counter].id === "lastclone") {
-                    let windowSizeH = document.documentElement.clientHeight;
-                    console.log("ok");
-                    //if we are at the of the image we want to remove the transition and jump back to the first image
-                    carouselSlide.style.transition = "none";
-                    // update the counter
-                    counter = carouselImages.length - 2;
-                    // and the we transform
-                    carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-                }
-                if (carouselImages[counter].id === "firstclone") {
-                    let windowSizeH = document.documentElement.clientHeight;
-                    //if we are at the of the image we want to remove the transition and jump back to the first image
-                    carouselSlide.style.transition = "none";
-                    // update the counter
-                    counter = carouselImages.length - counter;
-                    // and the we transform to go back to first one
-                    carouselSlide.style.transform = "translateY(" + -windowSizeH * counter + "px)";
-                }
-            });
+            anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: '.ml12 .letter',
+                translateX: [400, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 30 * i
+            })
+            carouselTranslate(document.documentElement.clientHeight, "translateY(")
 
             window.addEventListener("resize", myScriptY);
 
@@ -394,8 +375,7 @@ if (home) {
                 autoplay: false,
             });
 
-            var shadowAnimation = anime(
-                {
+            var shadowAnimation = anime({
                     targets: "#sphereGradient",
                     x1: "25%",
                     x2: "25%",
@@ -415,6 +395,161 @@ if (home) {
 
             init();
         })();
+        // duplicate for clone slide
+        var sphereAnimation2 = (function () {
+            var sphereEl2 = document.querySelector(".sphere-animation2");
+            var spherePathEls2 = sphereEl2.querySelectorAll(".Layer_1 path");
+            var pathLength2 = spherePathEls2.length;
+            var hasStarted = false;
+            var aimations = [];
+
+            fitElementToParent(sphereEl2);
+
+            var breathAnimation = anime({
+                begin: function () {
+                    for (var i = 0; i < pathLength2; i++) {
+                        aimations.push(
+                            anime({
+                                targets: spherePathEls2[i],
+                                stroke: {
+                                    value: ["rgba(255,255,255,1)", "rgba(80,80,80,.5)"],
+                                    duration: 1000,
+                                },
+                                translateX: [8, -16],
+                                translateY: [4, -8],
+                                easing: "easeOutQuad",
+                                autoplay: false,
+                            })
+                        );
+                    }
+                },
+                update: function (ins) {
+                    aimations.forEach(function (animation, i) {
+                        var percent = (1 - Math.sin(i * 0.35 + 0.0022 * ins.currentTime)) / 2;
+                        animation.seek(animation.duration * percent);
+                    });
+                },
+                duration: Infinity,
+                autoplay: false,
+            });
+
+            var shadowAnimation = anime({
+                    targets: "#sphereGradient",
+                    x1: "25%",
+                    x2: "25%",
+                    y1: "0%",
+                    y2: "75%",
+                    duration: 20000,
+                    easing: "easeOutQuint",
+                    autoplay: false,
+                },
+                0
+            );
+
+            function init() {
+                breathAnimation.play();
+                shadowAnimation.play();
+            }
+
+            init();
+        })();
+    }
+    //size--> client width or height -->document.documentElement.clientWidth
+    // translate--->"translateX(" or "translateY("
+    function carouselTranslate(size,translate){
+                    //recover again for ios oterwhise don'twork
+                    let counter = 1;
+                    //recover again to prevent bug on ios device
+                    let carouselSlide = document.querySelector(".carousel-slide");
+                    //recover again to prevent bug on ios device
+                    let carouselImages = document.getElementsByClassName("slide");
+                    // recover button prev
+                    var prevBtn = document.getElementsByClassName("prev");
+                    //recover button netx
+                    var nextBtn = document.getElementsByClassName("next");
+
+                   // button listener
+                   nextBtn[0].addEventListener("click", () => {
+                    if (counter >= carouselImages.length - 1) {
+                        return;
+                    }
+                    // recover again the window size to prevent bug on ios
+                    let windowSize = size;
+                    // add a transition style
+                    carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+                    // counter plus one
+                    counter++;
+                    // translate x
+                    carouselSlide.style.transform = translate + -windowSize * counter + "px)";
+                    if (x.matches){
+                        animateTextX('.ml1' +( counter +1) + ' .letter');
+                    }else{
+                        animateTextY('.ml1' +( counter +1) + ' .letter');
+                    }
+                   console.log('.ml1' +( counter +1) + ' .letter')
+
+                });
+
+                //add event to this button
+                prevBtn[0].addEventListener("click", function () {
+                    //if we have negative coununter
+                    if (counter <= 0) {
+                        //stop the function
+                        return;
+                    }
+                    // recover again the window size to prevent bug on ios
+                    let windowSize = size;
+                    //add transition style
+                    carouselSlide.style.transition = "transform 1s cubic-bezier(1,-0.19,.15,1.19)";
+                    //counter minus one
+                    counter--;
+                    //and translate the x
+                    carouselSlide.style.transform = translate + -windowSize * counter + "px)";
+                    //animate text
+                    if (x.matches){
+                        animateTextX('.ml1' +( counter +1) + ' .letter');
+                    }else{
+                        animateTextY('.ml1' +( counter +1) + ' .letter');
+                    }
+                    console.log('.ml1' +( counter +1) + ' .letter')
+                });
+
+                // event end with listener when transition end reset the transition
+                carouselSlide.addEventListener("transitionend", () => {
+                    // if the images at index counter so the laste one or the first one
+                    if (carouselImages[counter].id === "lastclone") {
+                        // recover again the window size to prevent bug on ios
+                        let windowSize = size;
+                        console.log("ok");
+                        //if we are at the of the image we want to remove the transition and jump back to the first image
+                        carouselSlide.style.transition = "none";
+                        // update the counter
+                        counter = carouselImages.length - 2;
+                        // and the we transform
+                        carouselSlide.style.transform = translate + -windowSize * counter + "px)";
+                        if (x.matches){
+                            animateTextX('.ml1' +( counter ) + ' .letter');
+                        }else{
+                            animateTextY('.ml1' +( counter ) + ' .letter');
+                        }
+                    }
+                    // if we are at the beginning
+                    if (carouselImages[counter].id === "firstclone") {
+                        // recover again the window size to prevent bug on ios
+                        let windowSize = size;
+                        //if we are at the of the image we want to remove the transition and jump back to the first image
+                        carouselSlide.style.transition = "none";
+                        // update the counter
+                        counter = carouselImages.length - counter;
+                        // and the we transform to go back to first one
+                        carouselSlide.style.transform =translate + -windowSize * counter + "px)";
+                        if (x.matches){
+                            animateTextX('.ml1' +( counter ) + ' .letter');
+                        }else{
+                            animateTextY('.ml1' +( counter ) + ' .letter');
+                        }
+                    }
+                });
     }
 }
 
@@ -521,31 +656,30 @@ if (mainPortfolio) {
 
         //add listener to scroll
         divToscroll.addEventListener("wheel", function (e) {
-          if (e.type != "wheel") {
-              return;
-          }
-          console.log("ok");
-          let delta = (e.deltaY || -e.wheelDelta || e.detail) >> 10 || 1;
-          delta = delta * -50;
-          document.documentElement.scrollLeft -= delta;
-          // safari needs also this
-          document.body.scrollLeft -= delta;
-          e.preventDefault();
-      });
+            if (e.type != "wheel") {
+                return;
+            }
+            console.log("ok");
+            let delta = (e.deltaY || -e.wheelDelta || e.detail) >> 10 || 1;
+            delta = delta * -50;
+            document.documentElement.scrollLeft -= delta;
+            // safari needs also this
+            document.body.scrollLeft -= delta;
+            e.preventDefault();
+        });
 
-/* -------------------------------- function -------------------------------- */
+        /* -------------------------------- function -------------------------------- */
 
         function scrollBack() {
             //give event to all project
             for (let i = 0; i < frontproject.length; i++) {
 
 
-
-
                 frontproject[i].addEventListener("mouseover", translateXBack);
                 frontproject[i].addEventListener("mouseout", removeTranslate);
 
                 function translateXBack() {
+
                     backPortfolio.style.transform = "translateX(" + -i * 10 + "%)";
                     backPortfolio.style.transition = "transform 0.5s cubic-bezier(1,-0.19,.15,1.19)";
                 }
@@ -559,7 +693,7 @@ if (mainPortfolio) {
 
     } // If media query matches and device is mobile
     else if (y.matches || (x.matches && deviceIsMobile === true)) {
-      // portfolio y hidde
+        // portfolio y hidde
         mainPortfolio.style.cssText = "overflow-y: hidden;";
         var windowSize = document.documentElement.clientWidth;
         window.addEventListener("resize", function () {
@@ -580,14 +714,38 @@ if (mainPortfolio) {
 
 var projectPage = document.getElementById("project__page");
 
+
+
 if (projectPage) {
+    var nexProj = document.getElementsByClassName("next_proj");
+    var prevProj = document.getElementsByClassName("prev_proj");
+
+    var thumb = document.getElementsByClassName("cursor");
+    var container = document.getElementsByClassName("container");
+
+    nexProj[0].addEventListener("click", plusSlides);
+    prevProj[0].addEventListener("click", minusSlides);
+
+    for (let i = 0; i < thumb.length; i++) {
+        thumb[i].addEventListener("click", function () {
+            console.log("ok");
+            showSlides((slideIndex = i + 1));
+        })
+    }
+
     var slideIndex = 1;
     showSlides(slideIndex);
 
     // Next/previous controls
-    function plusSlides(n) {
-        showSlides((slideIndex += n));
+    function plusSlides() {
+        showSlides((slideIndex += 1));
     }
+
+    function minusSlides() {
+        showSlides((slideIndex -= 1));
+    }
+
+
 
     // Thumbnail image controls
     function currentSlide(n) {
@@ -610,7 +768,7 @@ if (projectPage) {
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].style.display = "flex";
         dots[slideIndex - 1].className += " active";
     }
 }

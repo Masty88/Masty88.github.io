@@ -333,7 +333,7 @@ body::-webkit-scrollbar {
             flex-direction: column;
 
             img {
-                width: 50%;
+                width: 200px;
             }
 
             p {
@@ -369,7 +369,7 @@ body::-webkit-scrollbar {
             display: flex;
 
             img {
-                width: 50%;
+                width: 200px;
             }
 
             p {
@@ -458,7 +458,12 @@ body::-webkit-scrollbar {
                 overflow: hidden;
                 //position: absolute;
                 z-index: 2;
-
+                a{
+                    width: 20%;
+                    height: 50%;
+                    position: absolute;
+                    user-select: none;
+                }
                 svg {
                     width: 50px;
                     overflow: hidden;
@@ -585,7 +590,7 @@ body::-webkit-scrollbar {
             @include centerflex();
         }
 
-        .sphere-animation {
+        .sphere-animation, .sphere-animation2 {
             //position: absolute;
             // top: 100%;
             // left: 80%;
@@ -610,13 +615,6 @@ body::-webkit-scrollbar {
             left: 5%;
             padding: 8px;
 
-            h1 {
-                color: white;
-                line-height: 45px;
-                font-family: "didonesque";
-                font-size: 38px;
-                box-sizing: border-box;
-            }
 
             h2 {
                 width: 100%;
@@ -936,7 +934,17 @@ a{
         }
     }
 
+   .ml11, .ml12,.ml13,.ml14,.ml15,.ml16 {
+        color: white;
+        font-family: "didonesque";
+        font-size: 38px;
+        box-sizing: border-box;
+    }
 
+    .ml11 .letter,.ml12 .letter, .ml13 .letter, .ml14 .letter, .ml15 .letter, .ml16 .letter {
+        display: inline-block;
+        line-height: 45px;
+      }
 
     /* Next & previous buttons */
     .wrapper-btn {
@@ -1027,7 +1035,7 @@ footer{
     width: 100%;
     height: 40px;
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     z-index: 0;
     @include centerflex();
     justify-content: center;
@@ -1043,6 +1051,7 @@ footer{
         }
         img{
           width: 100%;
+
         }
     }
 
@@ -1059,6 +1068,10 @@ footer{
     /* -------------------------------------------------------------------------- */
     /*                                  PORTFOLIO                                 */
     /* -------------------------------------------------------------------------- */
+    .absolute-footer{
+        position: relative;
+        bottom: -110px;
+    }
     #portfolio {
         width: 100%;
         height: 100vh;
@@ -1080,10 +1093,96 @@ footer{
         #first__project {
             width: 100%;
             height: 180px;
-            background-image: url(/img/dream_project.jpg);
+            background-image: url(../img/dream_project.jpg);
             background-position: center;
             background-size: cover;
-            filter: grayscale(100%);
+            filter: grayscale(40%);
+            @include columnflex();
+
+            &::before {
+                content: "";
+                position: relative;
+                height: 0.5em;
+                left: -105px;
+                margin-top: 5px;
+                border-top: 1px solid white;
+                z-index: 1;
+                transition: border-top 2s ease-in;
+                width: 10%;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                margin-top: 8px;
+                color: rgb(172, 172, 172);
+            }
+        }
+
+        #second__project {
+            width: 100%;
+            height: 180px;
+            background-image: url(../img/bad-story.jpg);
+            background-position: center;
+            background-size: cover;
+            filter: grayscale(40%);
+            @include columnflex();
+
+            &::before {
+                content: "";
+                position: relative;
+                height: 0.5em;
+                left: -105px;
+                margin-top: 5px;
+                border-top: 1px solid white;
+                z-index: 1;
+                transition: border-top 2s ease-in;
+                width: 10%;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                margin-top: 8px;
+                color: rgb(172, 172, 172);
+            }
+        }
+
+        #third__project {
+            width: 100%;
+            height: 180px;
+            background-image: url(../img/lost-paradise.jpg);
+            background-position: center;
+            background-size: cover;
+            filter: grayscale(40%);
+            @include columnflex();
+
+            &::before {
+                content: "";
+                position: relative;
+                height: 0.5em;
+                left: -105px;
+                margin-top: 5px;
+                border-top: 1px solid white;
+                z-index: 1;
+                transition: border-top 2s ease-in;
+                width: 10%;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                margin-top: 8px;
+                color: rgb(172, 172, 172);
+            }
+        }
+
+        #fourth__project {
+            width: 100%;
+            height: 180px;
+            background-image: url(../img/elephant_line.jpg);
+            background-position: center;
+            background-size: contain;
             @include columnflex();
 
             &::before {
@@ -1107,28 +1206,33 @@ footer{
 
         }
 
-        #second__project {
-            width: 100%;
-            height: 180px;
-            background-color: red;
-        }
-
-        #third__project {
-            width: 100%;
-            height: 180px;
-
-        }
-
-        #fourth__project {
-            width: 100%;
-            height: 180px;
-
-        }
-
         #fifth__project {
             width: 100%;
             height: 180px;
-            background-color: violet;
+            background-image: url(/img/Maquette_hamm.jpg);
+            background-position: center;
+            background-size: cover;
+            filter: grayscale(80%);
+            @include columnflex();
+
+            &::before {
+                content: "";
+                position: relative;
+                height: 0.5em;
+                left: -105px;
+                margin-top: 5px;
+                border-top: 1px solid white;
+                z-index: 1;
+                transition: border-top 2s ease-in;
+                width: 10%;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                margin-top: 8px;
+                color: rgb(172, 172, 172);
+            }
         }
 
         .container__info {
@@ -1175,6 +1279,7 @@ footer{
     .container {
         width: 100%;
         height: 100%;
+        margin-top: 100px;
         position: relative;
         @include columnflex();
         justify-content: flex-start;
@@ -1186,37 +1291,18 @@ footer{
         display: none;
         @include centerflex();
         overflow: hidden;
-        height: 90vh;
+        //height: 90vh;
         position: relative;
 
         img {
-            position: relative;
+
             //  width: 180%;
-            height: 100%;
+            width: 100%;
             // width: auto;
         }
     }
 
-    .position-1 {
-        left: -120px;
-        ;
-    }
 
-    .position-2 {
-        left: 200px;
-    }
-
-    .position-3 {
-        left: -50px;
-    }
-
-    .position-4 {
-        left: 200px;
-    }
-
-    .position-5 {
-        left: -20px;
-    }
 
     /* Add a pointer when hovering over the thumbnail images */
     .cursor {
@@ -1252,7 +1338,7 @@ footer{
     .container-button {
         width: 100%;
         position: absolute;
-        top: 20%;
+        top: 10%;
         display: flex;
         justify-content: space-between;
 
@@ -1363,7 +1449,8 @@ footer{
             font-family: "didonesque";
             line-height: 20px;
             margin-left: 40%;
-
+            line-height: 12px;
+            margin-bottom: 10px;
             span {
                 width: 63%;
                 font-size: 12px;
@@ -1384,6 +1471,7 @@ footer{
 
         img {
             width: 100%;
+            margin-top: 10px;
             margin-left: 20%;
         }
 
@@ -1396,6 +1484,153 @@ footer{
     }
 
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  BIO PAGE                                  */
+/* -------------------------------------------------------------------------- */
+#bio{
+    width: 100%;
+
+    height: auto;
+    font-family: "didonesque";
+    color: white;
+    position: absolute;
+    top: 0px;
+    margin-top: 90px;
+    box-sizing: border-box;
+    overflow: hidden;
+    @include columnflex();
+    h1{
+        margin-bottom: 60px;
+        font-size: 28px;
+        font-family: "didonesque";
+        box-sizing: border-box;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border-top: 2px solid white;
+            z-index: 1;
+            width: 280px;
+            top: 80px;
+        }
+    }
+    section{
+        padding: 40px;
+        box-sizing: border-box;
+        max-width: 1080px;
+    }
+    h2{
+        font-size: 18px;
+        font-family: "didonesque";
+        margin-bottom: 20px;
+    }
+    p{
+        line-height: 20px;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    .tg td {
+        border-color: white;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg th {
+        border-color: white;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg .tg-wyx9 {
+        border-color: white;
+        color: #ffffff;
+        font-family: "Arial Black", Gadget, sans-serif !important;
+        ;
+        text-align: left;
+        vertical-align: top
+    }
+
+    .tg .tg-r31x {
+        color: #ffffff;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-28ch {
+        border-color: white;
+        color: #ffffff;
+        font-family: "Arial Black", Gadget, sans-serif !important;
+        ;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-l49g {
+        border-color: white;
+        color: #ffffff;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-m7o5 {
+        border-color: white;
+        color: #ffffff;
+        text-align: center;
+        vertical-align: top
+    }
+
+    .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+    .flex-wrapper-down{
+        display: flex;
+    }
+    .wrapper-down{
+        width: 120px;
+        height: 40px;
+        border: solid 1px white;
+        @include centerflex();
+        margin-bottom: 30px ;
+        background-color: white;
+        margin-right: 20px;
+    }
+    .cv{
+        color: black;
+        font-family: "Open Sans", sans-serif;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        display: inline-block;
+
+    }
+}
+
+/* --------------------------------- footer --------------------------------- */
+
+.footer-bio{
+    position: relative;
+
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                              mobile horizontal                             */
@@ -1534,6 +1769,10 @@ footer{
     }
 }
 
+.project-footer{
+    position: static;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                   tablet                                   */
 /* -------------------------------------------------------------------------- */
@@ -1546,7 +1785,7 @@ footer{
         .logo-transition {
 
             img {
-                width: 20%;
+                width: 200px;
             }
 
             p {
@@ -1564,7 +1803,7 @@ footer{
         .logo-transition {
 
             img {
-                width: 20%;
+                width: 200px;
             }
 
             p {
@@ -1730,6 +1969,13 @@ footer{
     /* -------------------------------------------------------------------------- */
     /*                                 portfolio                                 */
     /* -------------------------------------------------------------------------- */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .absolute-footer{
+        position: fixed;
+        bottom: 10px;
+    }
     #portfolio {
         width: 100%;
         height: 100vh;
@@ -1759,7 +2005,6 @@ footer{
         #first__project {
             width: 100%;
             height: 190px;
-            background-color: red;
             margin: 0 20px;
             width: 100%;
             height: 200px;
@@ -1787,22 +2032,19 @@ footer{
         #second__project {
             width: 100%;
             height: 190px;
-            background-color: red;
             margin: 0 20px;
             width: 100%;
             height: 200px;
-            background-image: url(../img/bad-story.jpg);
-            background-size: cover;
-            //filter: grayscale(0%);
-            @include columnflex();
-            margin: 0 20px;
-            box-sizing: border-box;
+            filter: none;
+
+            &::before {
+                display: none;
+            }
 
             a {
                 width: 100%;
                 height: 100%;
                 position: relative;
-
             }
 
             p {
@@ -1817,16 +2059,20 @@ footer{
         #third__project {
             width: 100%;
             height: 190px;
-            background-color: red;
             margin: 0 20px;
             width: 100%;
             height: 200px;
-            background-image: url(../img/lost-paradise.jpg);
-            background-size: cover;
-            //filter: grayscale(0%);
-            @include columnflex();
-            margin: 0 20px;
-            box-sizing: border-box;
+            filter: none;
+
+            &::before {
+                display: none;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
 
             p {
                 font-family: "Open Sans", sans-serif;
@@ -1840,16 +2086,20 @@ footer{
         #fourth__project {
             width: 100%;
             height: 190px;
-            background-color: red;
             margin: 0 20px;
             width: 100%;
             height: 200px;
-            background-image: url(../img/dystopye.jpg);
-            background-size: cover;
-            //filter: grayscale(0%);
-            @include columnflex();
-            margin: 0 20px;
-            box-sizing: border-box;
+            filter: none;
+
+            &::before {
+                display: none;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
 
             p {
                 font-family: "Open Sans", sans-serif;
@@ -1859,6 +2109,35 @@ footer{
                 text-align: center;
             }
         }
+
+        #fifth__project {
+            width: 100%;
+            height: 190px;
+            margin: 0 20px;
+            width: 100%;
+            height: 200px;
+            filter: none;
+
+            &::before {
+                display: none;
+            }
+
+            a {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            p {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                margin-top: 8px;
+                color: rgb(172, 172, 172);
+                text-align: center;
+            }
+        }
+
+
 
 
         .container__info {
@@ -1894,7 +2173,7 @@ footer{
         height: 100vh;
         font-family: "didonesque";
         color: white;
-        overflow-x: auto;
+        overflow-x: hidden;
         position: absolute;
         top: 0;
         left: 3%;
@@ -1976,7 +2255,13 @@ footer{
             max-width: 80ch;
         }
     }
+    //next and prev btn
+    .container-button {
 
+        top: 20%;
+
+
+    }
     .next-project {
         width: 80%;
         max-width: 1080px;
@@ -2022,7 +2307,7 @@ footer{
         img {
             width: auto;
             margin-left: 50%;
-            height: 30vh;
+            width: 50%;
         }
 
     }
@@ -2394,6 +2679,17 @@ footer{
             box-sizing: border-box;
         }
 
+
+        #fifth__project {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            background-size: cover;
+            @include columnflex();
+            margin: 0 20px;
+            box-sizing: border-box;
+        }
+
         .container__info {
             position: absolute;
             top: 75%;
@@ -2443,7 +2739,7 @@ footer{
 
         .second__project,
         .third__project,
-        .fourth__project {
+        .fourth__project,.fifth__project {
             width: 20%;
             height: 600px;
             max-width: 800px;
@@ -2462,10 +2758,13 @@ footer{
         width: 100%;
         @include centerflex();
         position: static;
+        max-width: 1920px;
 
         img {
             position: static;
-            width: 100%;
+           height: auto;
+           width: 70%;
+            margin: 0 auto;
         }
     }
 
@@ -2476,9 +2775,8 @@ footer{
         height: auto;
         font-family: "didonesque";
         @include columnflex();
-        margin-top: 10%;
+        margin-top: 5%;
         max-width: 1080px;
-
         h3 {
             font-size: 28px;
             line-height: 32px;
@@ -2489,13 +2787,26 @@ footer{
             max-width: 100ch;
         }
     }
+    //next and prev btn
+    .container-button {
+        width: 95%;
 
+        top: 20%;
+
+    }
+
+    .row {
+        display: flex;
+        width: 70%;
+        height: 10vh;
+
+    }
     .next-project {
         width: 57%;
         max-width: 1080px;
         margin-top: 60px;
         margin-right: 0;
-        height: 50vh;
+        height: 30vh;
         background-color: white;
         @include columnflex();
 
@@ -2514,7 +2825,11 @@ footer{
             font-family: "didonesque";
             line-height: 22px;
             margin-left: 20%;
-
+           margin-bottom: 10px;
+           a{
+               z-index: 300;
+           //background-color: #1E0540;
+           }
             span {
                 width: 63%;
                 font-size: 14px;
@@ -2536,16 +2851,18 @@ footer{
         max-width: 1920px;
         overflow: hidden;
         position: absolute;
-        bottom: -308px;
-
+        bottom: -160px;
+        z-index: 0;
         img {
-            width: 70%;
+            width: 700px;
             height: auto;
             margin-left: 50%;
-
         }
 
     }
 
-
+    .project-footer{
+        position: relative;
+        bottom: -170px;
+    }
 }
