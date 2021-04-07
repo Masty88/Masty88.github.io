@@ -165,8 +165,8 @@ if (home) {
     // Wrap every letter in a span
     var textWrapper = document.querySelector('.ml12');
     var textWrapper2 = document.querySelector('.ml13');
-    var textWrapper3 = document.querySelector('.ml14');
-    var textWrapper4 = document.querySelector('.ml15');
+    var textWrapper4 = document.querySelector('.ml14');
+    var textWrapper3 = document.querySelector('.ml15');
     var textWrapper5 = document.querySelector('.ml16');
     var textWrapper6 = document.querySelector('.ml11');
     //regex to replace
