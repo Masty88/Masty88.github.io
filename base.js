@@ -165,17 +165,17 @@ if (home) {
     // Wrap every letter in a span
     var textWrapper = document.querySelector('.ml12');
     var textWrapper2 = document.querySelector('.ml13');
-    var textWrapper4 = document.querySelector('.ml14');
-    var textWrapper3 = document.querySelector('.ml15');
+    var textWrapper3 = document.querySelector('.ml14');
+    var textWrapper4 = document.querySelector('.ml15');
     var textWrapper5 = document.querySelector('.ml16');
     var textWrapper6 = document.querySelector('.ml11');
     //regex to replace
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S{8,}/g, "<span class='letter'>$&<br>");
     textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S{2}\s\S{7}/, "<span class='letter'>$&<br>");
-    textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S{2}\s\S{5}/, "<span class='letter'>$&<br>");
-    textWrapper4.innerHTML = textWrapper4.textContent.replace(/\S{2}\s\S{6}/g, "<span class='letter'>$&<br>");
+    textWrapper4.innerHTML = textWrapper4.textContent.replace(/\S{2}\s\S{5}/, "<span class='letter'>$&<br>");
+    textWrapper3.innerHTML = textWrapper3.textContent.replace(/\S{2}\s\S{6}/g, "<span class='letter'>$&<br>");
     textWrapper5.innerHTML = textWrapper5.textContent.replace(/\S{8,}/g, "<span class='letter'>$&<br>");
-    textWrapper6.innerHTML = textWrapper6.textContent.replace(/\S{2}\s\S{6}/g, "<span class='letter'>$&<br>");
+    textWrapper6.innerHTML = textWrapper6.textContent.replace(/\S{2}\s\S{5}/, "<span class='letter'>$&<br>");
 
 /* -------------------- listener to resize to prevent bug ------------------- */
 
