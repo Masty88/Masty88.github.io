@@ -283,7 +283,7 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
     opacity: 0;
-    animation: logoTransition 1s linear forwards;
+    animation: logoTransition 2s linear forwards;
     display: none;
     justify-content: center;
     align-items: center;
@@ -295,7 +295,7 @@ body::-webkit-scrollbar {
   .page-transition .logo-transition svg path {
     stroke-dasharray: 3662.7866210938;
     stroke-dashoffset: 3662.7866210938;
-    animation: dash 1.2s linear forwards;
+    animation: dash 2s linear forwards;
   }
   .page-transition .logo-transition p {
     color: white;

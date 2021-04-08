@@ -129,7 +129,10 @@ window.addEventListener("scroll", function () {
 
 var divTransition = document.getElementsByClassName("page-transition"); //recover the logo
 
-var logoTransition = document.getElementsByClassName("logo-transition"); //recover the link
+var logoTransition = document.getElementsByClassName("logo-transition");
+var logoTSvg = document.querySelector(".line");
+var logoTransitionPath = document.querySelectorAll(".line path");
+console.log(logoTransitionPath); //recover the link
 
 var linkTranstion = document.getElementsByClassName("link-transition"); //burger
 //recover the global wrapper
@@ -154,7 +157,7 @@ function checkIndex(event) {
     divTransition[i].style.display = "flex";
     divTransition[i].addEventListener("animationend", function () {
       logoTransition[i].style.display = "flex";
-      logoTransition[i].addEventListener("animationend", function () {
+      logoTransitionPath[i].addEventListener("animationend", function () {
         var hrefPage = linkTranstion[indexLink].dataset.link;
         window.location.href = hrefPage;
       });
@@ -169,7 +172,7 @@ function checkIndex(event) {
 function initTRans() {
   globalWrapper[0].style.display = "block";
   console.log("ok");
-  globalWrapper[0].addEventListener("load", function () {
+  globalWrapper[0].addEventListener("animationend", function () {
     divTransitionIntro[0].style.display = "none";
     globalWrapper[0].style.cssText = "animation:none;";
   });
