@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
+
+
+
 /* -------------------------------------------------------------------------- */
 /*                                 burger menu                                */
 /* -------------------------------------------------------------------------- */
@@ -134,7 +137,9 @@ var divTransitionIntro = document.getElementsByClassName("page-transition-intro"
 
 linkTransitionListener();
 
-initTRans();
+window.onload=initTRans();
+
+
 
 
 /* -------------------------------- function -------------------------------- */
@@ -146,6 +151,8 @@ function linkTransitionListener() {
 }
 
 function checkIndex(event) {
+//don'td o if page is refresh
+
     var indexLink = Array.from(linkTranstion).indexOf(event.target);
     for (let i = 0; i < divTransition.length; i++) {
         divTransition[i].style.display = "flex";
@@ -167,6 +174,8 @@ function initTRans() {
             globalWrapper[0].style.cssText = "animation:none;";
         });
 }
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                               PAGE HOME                                    */
@@ -247,7 +256,7 @@ if (home) {
         })
         .add({
             targets:  index ,
-            translateX: [800, 0],
+            translateX: [400, 0],
             translateZ: 0,
             opacity: [0, 1],
             easing: "easeOutExpo",
@@ -280,7 +289,7 @@ if (home) {
             })
             .add({
                 targets: '.ml12 .letter',
-                translateX: [800, 0],
+                translateX: [400, 0],
                 translateZ: 0,
                 opacity: [0, 1],
                 easing: "easeOutExpo",
@@ -293,7 +302,7 @@ if (home) {
             })
             .add({
                 targets: '.ml16 .letter',
-                translateX: [800, 0],
+                translateX: [400, 0],
                 translateZ: 0,
                 opacity: [0, 1],
                 easing: "easeOutExpo",

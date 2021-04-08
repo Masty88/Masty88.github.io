@@ -138,7 +138,7 @@ var globalWrapper = document.getElementsByClassName("wrapper"); //intro transiti
 
 var divTransitionIntro = document.getElementsByClassName("page-transition-intro");
 linkTransitionListener();
-initTRans();
+window.onload = initTRans();
 /* -------------------------------- function -------------------------------- */
 
 function linkTransitionListener() {
@@ -148,6 +148,7 @@ function linkTransitionListener() {
 }
 
 function checkIndex(event) {
+  //don'td o if page is refresh
   var indexLink = Array.from(linkTranstion).indexOf(event.target);
 
   var _loop = function _loop(i) {
@@ -207,7 +208,7 @@ if (home) {
       loop: false
     }).add({
       targets: index,
-      translateX: [800, 0],
+      translateX: [400, 0],
       translateZ: 0,
       opacity: [0, 1],
       easing: "easeOutExpo",
@@ -242,7 +243,7 @@ if (home) {
         loop: false
       }).add({
         targets: '.ml12 .letter',
-        translateX: [800, 0],
+        translateX: [400, 0],
         translateZ: 0,
         opacity: [0, 1],
         easing: "easeOutExpo",
@@ -255,7 +256,7 @@ if (home) {
         loop: false
       }).add({
         targets: '.ml16 .letter',
-        translateX: [800, 0],
+        translateX: [400, 0],
         translateZ: 0,
         opacity: [0, 1],
         easing: "easeOutExpo",

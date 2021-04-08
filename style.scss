@@ -1152,9 +1152,11 @@ footer{
         #third__project {
             width: 100%;
             height: 180px;
-            background-image: url(../img/lost-paradise.jpg);
+            background-image: url(../img/Mumbay-sur-la-plage/Mumbay-sur-la-plage5.jpg);
             background-position: center;
             background-size: cover;
+            background-position:25% 25%;
+            background-repeat: no-repeat;
             filter: grayscale(40%);
             @include columnflex();
 
@@ -1329,11 +1331,6 @@ footer{
         border-radius: 3px 0 0 3px;
     }
 
-    /* On hover, add a black background color with a little bit see-through */
-    .prev_proj:hover,
-    .next_proj:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
 
     //next and prev btn
     .container-button {
@@ -1428,6 +1425,10 @@ footer{
         }
     }
 
+    .mumbai{
+        margin-top: 15%;
+    }
+
     .next-project {
         width: 80%;
         margin-top: 30px;
@@ -1440,6 +1441,7 @@ footer{
             width: 100%;
             height: 100%;
             position: relative;
+            color: $backcolor-main;
         }
 
         h4 {
@@ -1754,6 +1756,10 @@ footer{
             font-family: "Open Sans", sans-serif;
             max-width: 52ch;
         }
+    }
+
+    .mumbai{
+        margin-top: 25%;
     }
 
     .container-next-project {
@@ -2269,6 +2275,10 @@ footer{
             max-width: 80ch;
         }
     }
+
+    .mumbai{
+        margin-top: 20%;
+    }
     //next and prev btn
     .container-button {
 
@@ -2690,6 +2700,7 @@ footer{
             max-width: 700px;
             height: 400px;
             background-size: cover;
+            background-position:25% 25%;
             @include columnflex();
             margin: 0 20px;
             box-sizing: border-box;
@@ -2794,7 +2805,14 @@ footer{
         }
     }
 
-
+   .vertical{
+    img {
+        position: static;
+       height: 90vh;
+       width: auto;
+        margin: 0 auto;
+    }
+   }
 
     .text {
         width: 100%;
@@ -2812,6 +2830,11 @@ footer{
             font-size: 24px;
             max-width: 100ch;
         }
+    }
+
+    .mumbai{
+        margin-top: 20%;
+        margin-bottom: 5%;
     }
     //next and prev btn
     .container-button {
@@ -2854,7 +2877,7 @@ footer{
            margin-bottom: 10px;
            a{
                z-index: 300;
-           //background-color: #1E0540;
+               color: $backcolor-main;
            }
             span {
                 width: 63%;
@@ -2880,11 +2903,24 @@ footer{
         bottom: -160px;
         z-index: 0;
         img {
-            width: 700px;
+            width: 500px;
             height: auto;
-            margin-left: 50%;
+            margin-left: 60%;
         }
+    }
 
+    .vertical-next {
+        width: 100%;
+        max-width: 1920px;
+        overflow: hidden;
+        position: absolute;
+        bottom: -160px;
+        z-index: 0;
+        img {
+            width: auto;
+            height: 450px;
+            margin-left: 60%;
+        }
     }
 
     .project-footer{
