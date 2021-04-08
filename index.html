@@ -7,8 +7,19 @@
   <meta name="keywords" content="Emvisuels" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="dist/style.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="preconnect">
+  <!-- [STEP #1] -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- [STEP #3] -->
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      media="print" onload="this.media='all'" />
+    <!-- [STEP #2] -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+      <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"/>
+      </noscript>
+  <link href=>
 
 </head>
 
@@ -273,7 +284,7 @@
             <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
               </a> </p>
           </div>
-          <img src="img/line-01.png" alt="line graphic elephant">
+          <img src="img/line-01.png" alt="line graphic elephant" loading="lazy">
         </div>
         <!-- --svg animated-- -->
         <div id="backgroundvideo" class="slide" data-color="black">
@@ -497,7 +508,7 @@
             <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
               </a> </p>
           </div>
-          <img src="img/dream_project.jpg" alt="dream photo">
+          <img src="img/dream_project.jpg" alt="dream photo" loading="lazy">
         </div>
         <!-- --slide 3-- -->
         <div class="slide" id="slide3" data-color="red">
@@ -509,7 +520,7 @@
             <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
               </a> </p>
           </div>
-          <video autoplay muted loop>
+          <video autoplay muted loop playsinline poster="img/Maquette_hamm.jpg">
             <source src="video/haaamTeaser_1.webm">
           </video>
         </div>
@@ -523,7 +534,7 @@
             <p><a class="portfolio link-transition" href="#" data-link="dream.html">PROJECT
               </a> </p>
           </div>
-          <img src="img/line-01.png" alt="line graphic elephant">
+          <img src="img/line-01.png" alt="line graphic elephant"loading="lazy">
         </div>
         <!-- --first clone-- -->
         <div class="slide" id="firstclone">

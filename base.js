@@ -1,4 +1,34 @@
 /* -------------------------------------------------------------------------- */
+/*                                  Lazy Load                                 */
+/* -------------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+    if ("IntersectionObserver" in window) {
+      var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+
+            video.target.load();
+            video.target.classList.remove("lazy");
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+
+      lazyVideos.forEach(function(lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+
+/* -------------------------------------------------------------------------- */
 /*                                 burger menu                                */
 /* -------------------------------------------------------------------------- */
 
@@ -103,7 +133,7 @@ var divTransitionIntro = document.getElementsByClassName("page-transition-intro"
 
 linkTransitionListener();
 
-window.onload=initTRans();
+initTRans();
 
 
 /* -------------------------------- function -------------------------------- */
@@ -130,10 +160,11 @@ function checkIndex(event) {
 
 function initTRans() {
     globalWrapper[0].style.display = "block";
-    globalWrapper[0].addEventListener("animationend", function () {
-        divTransitionIntro[0].style.display = "none";
-        globalWrapper[0].style.cssText = "animation:none;";
-    });
+        console.log("ok");
+        globalWrapper[0].addEventListener("load", function () {
+            divTransitionIntro[0].style.display = "none";
+            globalWrapper[0].style.cssText = "animation:none;";
+        });
 }
 
 /* -------------------------------------------------------------------------- */

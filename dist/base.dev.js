@@ -4,10 +4,42 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 /* -------------------------------------------------------------------------- */
 
+/*                                  Lazy Load                                 */
+
+/* -------------------------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (video) {
+        if (video.isIntersecting) {
+          for (var source in video.target.children) {
+            var videoSource = video.target.children[source];
+
+            if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
+    lazyVideos.forEach(function (lazyVideo) {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  }
+});
+/* -------------------------------------------------------------------------- */
+
 /*                                 burger menu                                */
 
 /* -------------------------------------------------------------------------- */
 // recover the button
+
 var burgerButton = document.getElementsByClassName("span-burger"); // recover the span
 
 var span = document.getElementsByClassName("burger"); //recover burger to slide
@@ -106,7 +138,7 @@ var globalWrapper = document.getElementsByClassName("wrapper"); //intro transiti
 
 var divTransitionIntro = document.getElementsByClassName("page-transition-intro");
 linkTransitionListener();
-window.onload = initTRans();
+initTRans();
 /* -------------------------------- function -------------------------------- */
 
 function linkTransitionListener() {
@@ -136,7 +168,8 @@ function checkIndex(event) {
 
 function initTRans() {
   globalWrapper[0].style.display = "block";
-  globalWrapper[0].addEventListener("animationend", function () {
+  console.log("ok");
+  globalWrapper[0].addEventListener("load", function () {
     divTransitionIntro[0].style.display = "none";
     globalWrapper[0].style.cssText = "animation:none;";
   });
