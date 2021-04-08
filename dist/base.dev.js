@@ -148,7 +148,6 @@ function linkTransitionListener() {
 }
 
 function checkIndex(event) {
-  //don'td o if page is refresh
   var indexLink = Array.from(linkTranstion).indexOf(event.target);
 
   var _loop = function _loop(i) {
@@ -208,7 +207,7 @@ if (home) {
       loop: false
     }).add({
       targets: index,
-      translateX: [400, 0],
+      translateX: [800, 0],
       translateZ: 0,
       opacity: [0, 1],
       easing: "easeOutExpo",
@@ -243,7 +242,7 @@ if (home) {
         loop: false
       }).add({
         targets: '.ml12 .letter',
-        translateX: [400, 0],
+        translateX: [800, 0],
         translateZ: 0,
         opacity: [0, 1],
         easing: "easeOutExpo",
@@ -256,7 +255,7 @@ if (home) {
         loop: false
       }).add({
         targets: '.ml16 .letter',
-        translateX: [400, 0],
+        translateX: [800, 0],
         translateZ: 0,
         opacity: [0, 1],
         easing: "easeOutExpo",
