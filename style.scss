@@ -321,7 +321,7 @@ body::-webkit-scrollbar {
         overflow: hidden;
         height: 100%;
         background-color: $backcolor-main;
-        position: absolute;
+        position: fixed;
         z-index: 100;
         transform: translateX(100%);
         animation: pageTransition 1s cubic-bezier(.61, .12, .07, .92) forwards;
@@ -363,7 +363,7 @@ body::-webkit-scrollbar {
         width: 100%;
         height: 100%;
         background-color: $backcolor-main;
-        position: absolute;
+        position: fixed;
         z-index: 100;
         //transform: translateX(100%);
         animation: pageTransitionReverse 1s cubic-bezier(.61, .12, .07, .92) forwards;
@@ -394,6 +394,7 @@ body::-webkit-scrollbar {
         }
 
     }
+
 
 
     @keyframes pageTransition {
@@ -1349,6 +1350,7 @@ footer{
     //next and prev btn
     .container-button {
         width: 100%;
+        max-width: 1920px;
         position: absolute;
         top: 10%;
         display: flex;
@@ -1436,12 +1438,14 @@ footer{
             text-align: left;
             font-family: "Open Sans", sans-serif;
             max-width: 32ch;
+            line-height: 22px;
         }
     }
 
     .mumbai{
         margin-top: 15%;
     }
+
 
     .next-project {
         width: 80%;
@@ -1466,8 +1470,9 @@ footer{
             font-family: "didonesque";
             line-height: 20px;
             margin-left: 40%;
-            line-height: 12px;
+            line-height: 20px;
             margin-bottom: 10px;
+
             span {
                 width: 63%;
                 font-size: 12px;
@@ -1477,6 +1482,7 @@ footer{
             }
 
         }
+
 
     }
 
@@ -1499,6 +1505,15 @@ footer{
         }
 
     }
+
+    .vertical-next {
+        img {
+            width: auto;
+            height: 250px;
+            margin-left: 60%;
+        }
+    }
+
 
 }
 
@@ -1620,6 +1635,7 @@ footer{
     }
     .flex-wrapper-down{
         display: flex;
+        flex-direction: column;
     }
     .wrapper-down{
         width: 120px;
@@ -1638,6 +1654,16 @@ footer{
         font-size: 18px;
         display: inline-block;
 
+    }
+    .bio-pic{
+        position: absolute;
+        width: 45%;
+        overflow: hidden;
+        top: 70px;
+        right: 20px;
+        img{
+            width: 100%;
+        }
     }
 }
 
@@ -2361,6 +2387,32 @@ footer{
 
     }
 
+    .vertical-next {
+        bottom: 150px;
+        img {
+            width: auto;
+            height: 350px;
+            margin-left: 60%;
+        }
+    }
+
+
+/* ----------------------------------- BIO ---------------------------------- */
+#bio{
+    .bio-pic{
+        position: absolute;
+        width: 25%;
+        overflow: hidden;
+        top: 10px;
+        right: 60px;
+        img{
+            width: 100%;
+        }
+    }
+    .flex-wrapper-down{
+        flex-direction: row;
+    }
+}
 
 }
 
@@ -2954,4 +3006,20 @@ footer{
         position: relative;
         bottom: -170px;
     }
+    /* ----------------------------------- BIO ---------------------------------- */
+#bio{
+    .bio-pic{
+        position: absolute;
+        width: 18%;
+        overflow: hidden;
+        top: 10px;
+        right: 60px;
+        img{
+            width: 100%;
+        }
+    }
+    .flex-wrapper-down{
+        flex-direction: row;
+    }
+}
 }
