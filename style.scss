@@ -365,8 +365,10 @@ body::-webkit-scrollbar {
         background-color: $backcolor-main;
         position: fixed;
         z-index: 100;
+        top: 0;
+        left: 0;
         //transform: translateX(100%);
-        animation: pageTransitionReverse 1s cubic-bezier(.61, .12, .07, .92) forwards;
+        //animation: pageTransitionReverse 1s cubic-bezier(.61, .12, .07, .92) forwards;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -383,6 +385,11 @@ body::-webkit-scrollbar {
 
             svg {
                 width: 200px;
+                path{
+                    stroke-dasharray:3662.78662109375;
+                    stroke-dashoffset: 3662.78662109375;
+                    animation: dash 2s linear  alternate-reverse infinite;
+                }
             }
 
             p {

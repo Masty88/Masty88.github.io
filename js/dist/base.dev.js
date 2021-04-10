@@ -22,6 +22,17 @@ var spanName = document.getElementById("name");
 var spanLine = document.getElementById("line-nav"); // add action to span element
 
 burgerButton[0].addEventListener("click", burgerSlide, false);
+/* -------------------------------------------------------------------------- */
+
+/*                                NAV ON SCROLL                               */
+
+/* -------------------------------------------------------------------------- */
+
+var mainNav = document.getElementsByClassName("mainnav"); //listern on scrool
+
+window.addEventListener("scroll", function () {
+  mainNav[0].style.cssText = "background-color:#101111;";
+});
 /* -------------------------------- function -------------------------------- */
 
 function burgerSlide() {
@@ -79,23 +90,13 @@ function changeColorLogoReverse() {
 }
 /* -------------------------------------------------------------------------- */
 
-/*                                NAV ON SCROLL                               */
-
-/* -------------------------------------------------------------------------- */
-
-
-var mainNav = document.getElementsByClassName("mainnav"); //listern on scrool
-
-window.addEventListener("scroll", function () {
-  mainNav[0].style.cssText = "background-color:#101111;";
-});
-/* -------------------------------------------------------------------------- */
-
 /*                               PAGE TRANSITION                              */
 
 /* -------------------------------------------------------------------------- */
 
-var divTransition = document.getElementsByClassName("page-transition"); //recover the logo
+
+var divTransition = document.getElementsByClassName("page-transition");
+var firstDivTransition = document.getElementById("page-transition-intro"); //recover the logo
 
 var logoTransition = document.getElementsByClassName("logo-transition");
 var logoTSvg = document.querySelector(".line");
@@ -109,7 +110,16 @@ var globalWrapper = document.getElementsByClassName("wrapper"); //intro transiti
 
 var divTransitionIntro = document.getElementsByClassName("page-transition-intro");
 linkTransitionListener();
-window.onload = initTRans();
+
+document.onreadystatechange = function () {
+  if (document.readyState == "complete") {
+    console.log("here");
+    console.log(document.readyState);
+    firstDivTransition.style.cssText = "animation: pageTransitionReverse 1s cubic-bezier(0.61, 0.12, 0.07, 0.92) forwards;";
+  }
+};
+
+console.log(document.readyState);
 /* -------------------------------- function -------------------------------- */
 
 function linkTransitionListener() {
@@ -137,14 +147,7 @@ function checkIndex(event) {
   }
 }
 
-function initTRans() {
-  globalWrapper[0].style.display = "block";
-  console.log("ok");
-  globalWrapper[0].addEventListener("animationend", function () {
-    divTransitionIntro[0].style.display = "none";
-    globalWrapper[0].style.cssText = "animation:none;";
-  });
-}
+function initTRans() {}
 /* -------------------------------------------------------------------------- */
 
 /*                               PAGE HOME                                    */
