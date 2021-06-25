@@ -1,0 +1,383 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family:"Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+  }
+  p, h3, h2{
+    margin: 0px;
+  }
+  a{text-decoration: none; color: black;}
+  #bottomNav{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    height: 9vh;
+    bottom: 0;
+    left: 0;
+    border-top: 0.7px solid lightgrey;
+    background: white;
+  }
+  .bottomIcon{
+    text-align: center;
+    width: 30%;
+  }
+  .bottomIcon p{
+    font-size: 13px;
+    color: #1D976C;
+    margin-top: 1vh;
+  }
+  .bottomIcon i{
+    margin-top: 2vh;
+  }
+  .navIcon{
+    color: #93F9B9;
+    margin-top: 3vh;
+    font-size: 20px;
+  }
+  #current{
+    color: #1D976C;
+  }
+
+  /*ACCUEIL */
+  #content{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  #connect_txt{
+    text-align: center;
+    margin-top: 40px;
+  }
+  #logo img{
+    width: 130px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.connectInput{
+  border: 3px solid #93F9B9;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  height: 40px;
+  width: 60%;
+  padding-left: 10px;
+}
+#signup_form button{
+  border-radius: 20px;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  height: 40px;
+  width: 60%;
+  color: white;
+  background-color: #1D976C;
+  border: none;
+}
+#signup_form{
+  margin-bottom: 10vh;
+}
+
+/* PROFIL */
+#contentAcc{
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+#banner{
+  width: 100%;
+  height: 25vh;
+  background: #1D976C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#icon{
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 5vh;
+  background: lightgrey;
+  border: 2px solid white;
+}
+#icon img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+#description{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  width: 90%;
+}
+#description p{
+  font-size: 14px;
+  margin-top: 20px;
+}
+#reserver{
+  background: white;
+  width: 80%;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  border: 0.1px solid lightgrey;
+  margin-left: 10%;
+  margin-top: 60px;
+  padding-top: 35px;
+  text-align: center;
+  height: 70px;
+}
+#gestionPoints{
+  background: white;
+  border: 1px solid lightgrey;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 40px;
+  padding-top: 25px;
+  text-align: center;
+  height: 50px;
+}
+
+/*RESERVATION + VOTE */
+#container{
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+#top{
+  width: 100%;
+  height: 22vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #1D976C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#topVote{
+  width: 100%;
+  height: 19vh;
+  padding-top: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #1D976C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#voteIntitule{
+  margin: 0 auto;
+  margin-bottom:2vh;
+  color: white;
+  text-align: center;
+  width: 70%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+#panier{
+  text-align: center;
+  color: white;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+}
+#panier img{
+  height: 50px;
+}
+.champsDate{
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 1vh auto;
+  color: white;
+}
+.champsDate p{
+  margin-left: 2vh;
+  font-size: 14px;
+  padding: 1vh 0;
+}
+.champsDate i{
+  font-size: 16px;
+  margin-left: 2vh;
+  padding: 1vh 0;
+}
+.champsDate select{
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+}
+.choixIntitulé{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.choix, .voteOption{
+  width: 96%;
+  margin-left: 2%;
+}
+ul{
+  list-style-type: none;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.platreserve{
+  border: none;
+  border-left: 3px solid #1D976C;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.entreereserve{
+  border: none;
+  border-left: 3px solid #1D976C;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.platViandereserve{
+  border: none;
+  border-left: 3px solid #1D976C;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.platvegereserve{
+  border: none;
+  border-left: 3px solid #1D976C;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.dessertreserve{
+  border: none;
+  border-left: 3px solid #1D976C;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.choixBorder{
+  border: 1px solid lightgrey;
+}
+.choix li, .voteOption li{
+  margin: 0px 12px 0px 12px;
+  padding: 15px 15px 15px 15px;
+}
+.choix li p, .voteOption li p{
+  font-size: 12px;
+  color: grey;
+  margin-top: 10px;
+  margin-right: 40px;
+  margin-bottom: 5px;
+}
+.choix li .fas, .voteOption li .fas{
+  color: #1D976C;
+  margin-left: 5px;
+}
+#reserverBtn{
+  margin-bottom: 13vh;
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 10%;
+  height: 40px;
+  background-color: #1D976C;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+#recu, #aVote{
+  height: 61vh;
+  width: 80%;
+  display: none;
+  margin-left: 10%;
+}
+#recu h3{
+  margin-bottom: 20px;
+  margin-top: 10vh;
+  color: #1D976C;
+  text-align: center;
+}
+#aVote h3{
+  margin-bottom: 20px;
+  margin-top: 20vh;
+  color: #1D976C;
+  text-align: center;
+}
+#recu p{
+  text-align: center;
+}
+#recu img{
+  height: 90px;
+  width: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+#aVote img{
+  height: 120px;
+  width: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+}
+
+
+/*PROFIL*/
+#topBanner{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20vh;
+  background: #1D976C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#profilLogo{
+  height: 50px;
+  margin: 2vh 2vh;
+}
+#profilLogo img{
+  height: 100%;
+}
+#editProfil{
+  color: white;
+}
+#imageProfil{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  margin-left: -40px;
+  bottom: -40px;
+  background: lightgrey;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+#editProfil .far{
+  margin-top: 4vh;
+  margin-right: 3vh;
+}
+#infosUser{
+  margin-top: 11vh;
+}
+.forminput{
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #1D976C;
+  width: 70%;
+  margin-left: 15%;
+}
+#infosUser p{
+  margin-bottom: 10px;
+  margin-left: 14%;
+}
